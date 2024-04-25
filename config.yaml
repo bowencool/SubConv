@@ -13,9 +13,9 @@ RULESET:
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BardAI/BardAI.list
 - - 🇺🇸 美国节点
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
-# - - 🎯 全球直连
+# - - DIRECT
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/LocalAreaNetwork.list
-# - - 🎯 全球直连
+# - - DIRECT
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/UnBan.list
 # - - 🛑 广告拦截
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanAD.list
@@ -27,7 +27,7 @@ RULESET:
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanProgramAD.list
 # - - 🛡️ 隐私防护
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyPrivacy.list
-- - 🎯 全球直连
+- - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/GoogleFCM.list
 - - 🌐 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Google.list
@@ -65,37 +65,37 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Steam.list
 # - - 🎮 游戏平台
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Nintendo.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bilibili/Bilibili.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/XiaoMi/XiaoMi.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DouYin/DouYin.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/XiaoHongShu/XiaoHongShu.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iQIYI/iQIYI.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TencentVideo/TencentVideo.list
-- - 🎯 全球直连
+- - DIRECT
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GameDownloadCN/GameDownloadCN.list
-- - 🎯 全球直连
+- - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
-- - 🎯 全球直连
+- - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
-- - 🎯 全球直连
+- - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Apple.list
-- - 🎯 全球直连
+- - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaIp.list
-# - - 🎯 全球直连
+# - - DIRECT
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaDomain.list
-# - - 🎯 全球直连
+# - - DIRECT
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaCompanyIp.list
-# - - 🎯 全球直连
+# - - DIRECT
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Download.list
-- - 🎯 全球直连
+- - DIRECT
   - '[]GEOIP,CN'
 - - 🐟 漏网之鱼
   - '[]FINAL'
@@ -114,9 +114,6 @@ CUSTOM_PROXY_GROUP:
 - name: 🌐 国外媒体
   type: select
   prior: ♻️ 自动选择
-- name: 🎯 全球直连
-  type: select
-  prior: DIRECT
 # - name: 🛑 广告拦截
 #   type: select
 #   prior: REJECT
