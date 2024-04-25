@@ -82,31 +82,29 @@ RULESET:
 - - 🐟 漏网之鱼
   - '[]FINAL'
 CUSTOM_PROXY_GROUP:
-- name: 🐟 漏网之鱼
-  type: select
-  prior: DIRECT
 - name: 🔰 手动2
   type: select
   manual: true
   rule: false
+- name: 🐟 漏网之鱼
+  type: select
+  prior: DIRECT
 - name: 🤖 ChatBot
   type: select
-  prior: PROXY
+  prior: 🇺🇸 美国节点
+- name: 🎮 游戏平台
+  type: select
+  prior: DIRECT
+# 几乎不需要动的选择器
 - name: 📢 谷歌FCM
   type: select
   prior: DIRECT
 - name: 🌐 国外媒体
   type: select
-  prior: PROXY
+  prior: ♻️ 自动选择
 - name: 🇨🇳 国内媒体
   type: select
   prior: DIRECT
-- name: 🎮 游戏平台
-  type: select
-  prior: DIRECT
-- name: ♻️ 自动选择
-  type: url-test
-  rule: false
 - name: 🎯 全球直连
   type: select
   prior: DIRECT
@@ -130,6 +128,10 @@ CUSTOM_PROXY_GROUP:
 #   type: load-balance
 #   rule: false
 #   regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
+
+- name: ♻️ 自动选择
+  type: url-test
+  rule: false
 - name: 🇭🇰 香港节点
   type: url-test
   rule: false
