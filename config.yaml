@@ -6,43 +6,43 @@ HEAD:
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
 - - 🤖 ChatBot
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/OpenAi.list
+  - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
 - - 🤖 ChatBot
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/ChatBot.list
+  - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
+- - 🤖 ChatBot
+  - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BardAI/BardAI.yaml
+- - 🤖 ChatBot
+  - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
 - - 🎯 全球直连
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/LocalAreaNetwork.list
 - - 🎯 全球直连
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/UnBan.list
 - - 🛑 广告拦截
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanAD.list
-- - 🍃 应用净化
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanProgramAD.list
 - - 🛑 广告拦截
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyList.list
 - - 🛑 广告拦截
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyListChina.list
+- - 🍃 应用净化
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanProgramAD.list
 - - 🛡️ 隐私防护
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyPrivacy.list
 - - 📢 谷歌FCM
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/GoogleFCM.list
-- - 📢 谷歌服务
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Google.list
-- - 🎯 全球直连
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Adobe.list
-- - Ⓜ️ 微软Bing
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Bing.list
-- - Ⓜ️ 微软云盘
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
-- - Ⓜ️ 微软服务
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
-- - 🍎 苹果服务
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Apple.list
-- - 📲 Telegram
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Telegram.list
-- - 🎶 网易音乐
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/NetEaseMusic.list
-- - 🎶 Spotify
+- - 🌍 国外媒体
+  - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
+- - 🌍 国外媒体
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyMedia.list
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
+- - 🌍 国外媒体
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
+# - - 🎥 Netflix
+#   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Netflix.list
 - - 🎮 游戏平台
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Epic.list
 - - 🎮 游戏平台
@@ -53,22 +53,24 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Steam.list
 - - 🎮 游戏平台
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Nintendo.list
-- - 📹 YouTube
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
-- - 🎥 Netflix
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Netflix.list
 # - - 📺 巴哈姆特
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Bahamut.list
-- - 📺 哔哩哔哩
+- - 🇨🇳 国内媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/BilibiliHMT.list
-- - 📺 哔哩哔哩
+- - 🇨🇳 国内媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Bilibili.list
-- - 🌏 国内媒体
+- - 🇨🇳 国内媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaMedia.list
-- - 🌍 国外媒体
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyMedia.list
-- - 🚀 节点选择
-  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyGFWlist.list
+- - 🎯 全球直连
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Adobe.list
+- - 🎯 全球直连
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Bing.list
+- - 🎯 全球直连
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
+- - 🎯 全球直连
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
+- - 🎯 全球直连
+  - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Apple.list
 - - 🎯 全球直连
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaIp.list
 - - 🎯 全球直连
@@ -85,66 +87,30 @@ CUSTOM_PROXY_GROUP:
 - name: ♻️ 自动选择
   type: url-test
   rule: false
-- name: 🚀 手动切换1
+- name: 🔰 手动1
   type: select
   manual: true
   rule: false
-- name: 🚀 手动切换2
+- name: 🔰 手动2
   type: select
   manual: true
   rule: false
-- name: 🔯 故障转移
-  type: fallback
-  rule: false
+# - name: 🔯 故障转移
+#   type: fallback
+#   rule: false
 - name: 🤖 ChatBot
   type: select
   prior: PROXY
-- name: 📲 Telegram
-  type: select
-  prior: PROXY
-- name: 📹 YouTube
-  type: select
-  prior: PROXY
-- name: 🎥 Netflix
-  type: select
-  prior: PROXY
-# - name: 📺 巴哈姆特
-#   type: select
-#   prior: PROXY
-- name: 📺 哔哩哔哩
-  type: select
-  prior: DIRECT
 - name: 🌍 国外媒体
   type: select
   prior: PROXY
-- name: 🌏 国内媒体
+- name: 🇨🇳 国内媒体
   type: select
   prior: DIRECT
 - name: 📢 谷歌FCM
   type: select
   prior: DIRECT
-- name: 📢 谷歌服务
-  type: select
-  prior: PROXY
-- name: Ⓜ️ 微软Bing
-  type: select
-  prior: PROXY
-- name: Ⓜ️ 微软云盘
-  type: select
-  prior: DIRECT
-- name: Ⓜ️ 微软服务
-  type: select
-  prior: DIRECT
-- name: 🍎 苹果服务
-  type: select
-  prior: DIRECT
 - name: 🎮 游戏平台
-  type: select
-  prior: DIRECT
-- name: 🎶 网易音乐
-  type: select
-  prior: DIRECT
-- name: 🎶 Spotify
   type: select
   prior: DIRECT
 - name: 🎯 全球直连
@@ -161,7 +127,7 @@ CUSTOM_PROXY_GROUP:
   prior: REJECT
 - name: 🐟 漏网之鱼
   type: select
-  prior: PROXY
+  prior: DIRECT
 # - name: 🔮 负载均衡
 #   type: load-balance
 #   rule: false
