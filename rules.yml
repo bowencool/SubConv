@@ -1,4 +1,0 @@
-rules:
-  - "DOMAIN,challenges.cloudflare.com,🔰 节点选择"
-  - "DOMAIN-SUFFIX,imgur.com,🇯🇵 日本自动"
-  - "DOMAIN-SUFFIX,music.youtube.com,🚀 节点选择"

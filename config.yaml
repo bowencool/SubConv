@@ -3,6 +3,11 @@ HEAD:
   allow-lan: true
   mode: rule
   log-level: info
+  sub-rules:
+    bowen:
+      - DOMAIN,challenges.cloudflare.com,🇯🇵 日本自动
+      - DOMAIN-SUFFIX,imgur.com,🇯🇵 日本自动
+      - DOMAIN-SUFFIX,music.youtube.com,🚀 节点选择
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
 # my personal rule
