@@ -104,16 +104,15 @@ CUSTOM_PROXY_GROUP:
   type: select
   manual: true
   rule: false
+- name: 🌍 国外媒体
+  type: select
+  prior: ♻️ 自动选择
 - name: 🐟 漏网之鱼
   type: select
   prior: DIRECT
 - name: 🎮 游戏平台
   type: select
   prior: DIRECT
-# 几乎不需要动的选择器
-- name: 🌍 国外媒体
-  type: select
-  prior: ♻️ 自动选择
 # - name: 🛑 广告拦截
 #   type: select
 #   prior: REJECT
