@@ -29,29 +29,29 @@ RULESET:
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyPrivacy.list
 - - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/GoogleFCM.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Google.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitLab/GitLab.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Slack/Slack.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Notion/Notion.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Telegram.list
 - - 🇺🇸 美国节点
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
 - - 🇺🇸 美国节点
   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyMedia.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
-- - 🌐 国外媒体
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
 # - - 🎥 Netflix
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Netflix.list
@@ -100,7 +100,7 @@ RULESET:
 - - 🐟 漏网之鱼
   - '[]FINAL'
 CUSTOM_PROXY_GROUP:
-- name: 🔰 手动2
+- name: 🔰 节点选择
   type: select
   manual: true
   rule: false
@@ -111,7 +111,7 @@ CUSTOM_PROXY_GROUP:
   type: select
   prior: DIRECT
 # 几乎不需要动的选择器
-- name: 🌐 国外媒体
+- name: 🌍 国外媒体
   type: select
   prior: ♻️ 自动选择
 # - name: 🛑 广告拦截
