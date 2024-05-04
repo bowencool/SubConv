@@ -30,7 +30,7 @@ DOMAIN-SUFFIX,ca
 DOMAIN-KEYWORD,appstorrent
 DOMAIN,formulae.brew.sh
 DOMAIN,production.cloudflare.docker.com
-DOMAIN-SUFFIX,hub.docker.com
+DOMAIN,hub.docker.com
 DOMAIN-SUFFIX,zoom.us
 DOMAIN-SUFFIX,ant.design
 DOMAIN-SUFFIX,rsshub.app
