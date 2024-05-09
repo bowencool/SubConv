@@ -96,7 +96,7 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
 - - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
-- - DIRECT
+- - 🍎 Apple
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Apple.list
 - - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaIp.list
@@ -122,6 +122,9 @@ CUSTOM_PROXY_GROUP:
   type: select
   prior: DIRECT
 - name: 🎮 游戏平台
+  type: select
+  prior: DIRECT
+- name: 🍎 Apple
   type: select
   prior: DIRECT
 # - name: 🛑 广告拦截
