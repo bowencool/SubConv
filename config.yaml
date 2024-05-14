@@ -62,7 +62,7 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyMedia.list
 - - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
-- - 🌍 国外媒体
+- - ▶️ YouTube
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
 # - - 🎥 Netflix
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Netflix.list
@@ -115,6 +115,12 @@ CUSTOM_PROXY_GROUP:
   type: select
   manual: true
   rule: false
+- name: 🍎 Apple
+  type: select
+  prior: DIRECT
+- name: ▶️ YouTube
+  type: select
+  prior: ♻️ 自动选择
 - name: 🌍 国外媒体
   type: select
   prior: ♻️ 自动选择
@@ -122,9 +128,6 @@ CUSTOM_PROXY_GROUP:
   type: select
   prior: DIRECT
 - name: 🎮 游戏平台
-  type: select
-  prior: DIRECT
-- name: 🍎 Apple
   type: select
   prior: DIRECT
 # - name: 🛑 广告拦截
