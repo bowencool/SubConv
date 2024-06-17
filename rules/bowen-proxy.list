@@ -2,8 +2,8 @@
 DOMAIN-SUFFIX,phind.com
 DOMAIN-SUFFIX,devv.ai
 DOMAIN-SUFFIX,perplexity.ai
-DOMAIN-SUFFIX,ciciai.com
 DOMAIN-SUFFIX,coze.com
+DOMAIN-SUFFIX,ohmygpt.com
 DOMAIN,giscus.app
 DOMAIN,userstyles.org
 DOMAIN-SUFFIX,shuttleapp.rs
@@ -46,7 +46,7 @@ DOMAIN-SUFFIX,codementor.io
 DOMAIN-KEYWORD,discord
 DOMAIN-SUFFIX,apkpure.com
 DOMAIN-KEYWORD,wmsxwd
-DOMAIN-SUFFIX,ohmygpt.com
+DOMAIN-SUFFIX,mojie.live
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,datadoghq.com
 # Reddit
