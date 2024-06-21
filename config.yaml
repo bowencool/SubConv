@@ -62,7 +62,7 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ProxyMedia.list
 - - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
-- - ▶️ YouTube
+- - 🌍 国外媒体
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
 # - - 🎥 Netflix
 #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Netflix.list
@@ -98,12 +98,10 @@ RULESET:
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
 - - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
-- - 🍎 iCloud
+- - DIRECT
   - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iCloud/iCloud.list
-- - 🍎 Apple
+- - DIRECT
   - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
-# - - 🍎 Apple
-#   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Apple.list
 - - DIRECT
   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/ChinaIp.list
 # - - DIRECT
@@ -121,15 +119,12 @@ CUSTOM_PROXY_GROUP:
   type: select
   manual: true
   rule: false
-- name: 🍎 Apple
-  type: select
-  prior: DIRECT
-- name: 🍎 iCloud
-  type: select
-  prior: DIRECT
-- name: ▶️ YouTube
-  type: select
-  prior: ♻️ 自动选择
+# - name: 🍎 Apple
+#   type: select
+#   prior: DIRECT
+# - name: 🍎 iCloud
+#   type: select
+#   prior: DIRECT
 - name: 🌍 国外媒体
   type: select
   prior: ♻️ 自动选择
@@ -163,10 +158,10 @@ CUSTOM_PROXY_GROUP:
 - name: ♻️ 自动选择
   type: url-test
   rule: false
-- name: 🇭🇰 香港自动
-  type: url-test
-  rule: false
-  regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
+# - name: 🇭🇰 香港自动
+#   type: url-test
+#   rule: false
+#   regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
 # - name: 🇨🇳 台湾自动
 #   type: url-test
 #   rule: false
