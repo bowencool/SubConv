@@ -3,11 +3,6 @@ HEAD:
   allow-lan: true
   mode: rule
   log-level: info
-  sub-rules:
-    bowen:
-      - DOMAIN,challenges.cloudflare.com,🇯🇵 日本自动
-      - DOMAIN-SUFFIX,imgur.com,🇯🇵 日本自动
-      - DOMAIN-SUFFIX,music.youtube.com,🚀 节点选择
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
 # my personal rule
@@ -164,10 +159,10 @@ CUSTOM_PROXY_GROUP:
 #   type: url-test
 #   rule: false
 #   regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
-- name: 🇯🇵 日本自动
-  type: url-test
-  rule: false
-  regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日
+# - name: 🇯🇵 日本自动
+#   type: url-test
+#   rule: false
+#   regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日
 # - name: 🇰🇷 韩国自动
 #   type: url-test
 #   rule: false
