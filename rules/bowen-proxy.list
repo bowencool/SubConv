@@ -38,6 +38,8 @@ DOMAIN-SUFFIX,openvpn.net
 DOMAIN-SUFFIX,gravatar.com
 DOMAIN-SUFFIX,dev.to
 DOMAIN-SUFFIX,vercel.app
+DOMAIN-SUFFIX,gitbook.io
+DOMAIN-SUFFIX,gitbook.com
 DOMAIN,vercel.com
 DOMAIN,jsfiddle.net
 DOMAIN-SUFFIX,jshell.net
@@ -57,10 +59,3 @@ DOMAIN,www.redditstatic.com
 DOMAIN-SUFFIX,npm.community
 DOMAIN-SUFFIX,npmjs.com
 DOMAIN-SUFFIX,npmjs.org
-
-IP-CIDR,149.112.112.112/32
-IP-CIDR,9.9.9.9/32
-IP-CIDR,8.8.8.8/32
-IP-CIDR,8.8.4.4/32
-IP-CIDR,1.0.0.1/32
-IP-CIDR,1.1.1.1/32,
