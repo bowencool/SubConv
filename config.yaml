@@ -149,10 +149,10 @@ CUSTOM_PROXY_GROUP:
 - name: ♻️ 自动选择
   type: url-test
   rule: false
-# - name: 🇭🇰 香港自动
-#   type: url-test
-#   rule: false
-#   regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
+- name: 🇭🇰 香港自动
+  type: url-test
+  rule: false
+  regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
 # - name: 🇨🇳 台湾自动
 #   type: url-test
 #   rule: false
@@ -161,10 +161,10 @@ CUSTOM_PROXY_GROUP:
 #   type: url-test
 #   rule: false
 #   regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
-# - name: 🇯🇵 日本自动
-#   type: url-test
-#   rule: false
-#   regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日
+- name: 🇯🇵 日本自动
+  type: url-test
+  rule: false
+  regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日
 # - name: 🇰🇷 韩国自动
 #   type: url-test
 #   rule: false
