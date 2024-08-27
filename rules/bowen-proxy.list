@@ -19,6 +19,9 @@ DOMAIN-SUFFIX,producthunt.com
 DOMAIN-SUFFIX,stackoverflow.com
 DOMAIN-SUFFIX,tailwindcss.com
 DOMAIN,forums.unraid.net
+# warp
+DOMAIN-SUFFIX,warp.dev
+DOMAIN-SUFFIX,rudderstack.com
 # 国外域名
 DOMAIN-SUFFIX,eu
 DOMAIN-SUFFIX,hk
