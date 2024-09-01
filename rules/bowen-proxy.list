@@ -18,6 +18,7 @@ DOMAIN-SUFFIX,vox-cdn.com
 DOMAIN-SUFFIX,producthunt.com
 DOMAIN-SUFFIX,stackoverflow.com
 DOMAIN-SUFFIX,tailwindcss.com
+DOMAIN-SUFFIX,wise.com
 DOMAIN,forums.unraid.net
 # warp
 DOMAIN-SUFFIX,warp.dev
