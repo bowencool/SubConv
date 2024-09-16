@@ -69,6 +69,10 @@ DOMAIN-SUFFIX,npm.community
 DOMAIN-SUFFIX,npmjs.com
 DOMAIN-SUFFIX,npmjs.org
 DOMAIN-SUFFIX,nodejs.org
+# Adult
+DOMAIN-SUFFIX,supjav.com
+DOMAIN-SUFFIX,missav.com
+DOMAIN-SUFFIX,xvideos.com
 # DNS
 IP-CIDR,149.112.112.112/32
 IP-CIDR,208.67.222.222/32
