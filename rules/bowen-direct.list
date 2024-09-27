@@ -2,7 +2,9 @@ DOMAIN,checkip.dyndns.com
 DOMAIN-SUFFIX,bowen.cool
 DOMAIN-SUFFIX,cn
 DOMAIN,ghproxy.com
+DOMAIN,gh-proxy.com
 DOMAIN,dockerproxy.com
+DOMAIN,docker-proxy.com
 DOMAIN-SUFFIX,upwork.com
 DOMAIN-SUFFIX,fiverr.com
 DOMAIN-SUFFIX,tailscale.io
