@@ -79,6 +79,8 @@ RULESET:
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Epic.list
   - - 🎮 游戏平台
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Steam.list
+  - - 🛑 广告
+    - https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ads-all.list
   - - 🐟 漏网之鱼
     - "[]FINAL"
 CUSTOM_PROXY_GROUP:
@@ -126,11 +128,11 @@ CUSTOM_PROXY_GROUP:
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/LocalAreaNetwork.list
   # - - DIRECT
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/UnBan.list
-  # - - 🛑 广告拦截
+  # - - 🛑 广告
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanAD.list
-  # - - 🛑 广告拦截
+  # - - 🛑 广告
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyList.list
-  # - - 🛑 广告拦截
+  # - - 🛑 广告
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyListChina.list
   # - - 🍃 应用净化
   #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanProgramAD.list
@@ -140,17 +142,17 @@ CUSTOM_PROXY_GROUP:
   #   type: url-test
   #   rule: false
   #   regex: 🇹🇼|TW|Taiwan|新北|彰化|CHT|台|HINET
-  # - name: 🇸🇬 狮城自动
-  #   type: url-test
-  #   rule: false
-  #   regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
+  - name: 🇸🇬 狮城自动
+    type: url-test
+    rule: false
+    regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
   # - name: 🇰🇷 韩国自动
   #   type: url-test
   #   rule: false
   #   regex: 🇰🇷|KO?R|Korea|首尔|韩|韓
-  # - name: 🛑 广告拦截
-  #   type: select
-  #   prior: REJECT
+  - name: 🛑 广告
+    type: select
+    prior: REJECT
   # - name: 🍃 应用净化
   #   type: select
   #   prior: REJECT
