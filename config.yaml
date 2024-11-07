@@ -12,7 +12,7 @@ RULESET:
   - - DIRECT
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-direct.list
   - - 🛑 广告
-    - https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ads-all.list
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list
 
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
