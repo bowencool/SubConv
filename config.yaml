@@ -97,15 +97,15 @@ CUSTOM_PROXY_GROUP:
   - name: 🌍 国外媒体
     type: select
     prior: ♻️ 自动选择
-  - name: 🐟 漏网之鱼
-    type: select
-    prior: DIRECT
   - name: 🎮 游戏平台
     type: select
     prior: DIRECT
   - name: 🛑 广告
     type: select
     prior: REJECT
+  - name: 🐟 漏网之鱼
+    type: select
+    prior: DIRECT
 
   - name: ♻️ 自动选择
     type: url-test
