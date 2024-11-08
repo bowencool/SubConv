@@ -5,7 +5,7 @@ HEAD:
   log-level: info
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/us.list
   - - 🌍 国外媒体
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-proxy.list
@@ -45,13 +45,13 @@ RULESET:
   - - DIRECT
     - "[]GEOIP,CN"
 
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BardAI/BardAI.list
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
   - - DIRECT
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/GoogleFCM.list
@@ -69,9 +69,11 @@ RULESET:
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Notion/Notion.list
   - - 🌍 国外媒体
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Telegram.list
-  - - 🇺🇸 美国节点
+  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-  - - 🇺🇸 美国节点
+  # - - 🇺🇸 美国自动
+  #   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
+  - - 🇺🇸 美国自动
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
   - - 🌍 国外媒体
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
@@ -116,9 +118,8 @@ CUSTOM_PROXY_GROUP:
     type: url-test
     rule: false
     regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日
-  - name: 🇺🇸 美国节点
-    type: select
-    manual: true
+  - name: 🇺🇸 美国自动
+    type: url-test
     rule: false
     regex: 🇺🇸|US|America|United.*?States|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥
   - name: 🇸🇬 狮城自动
