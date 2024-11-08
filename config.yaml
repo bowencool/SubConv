@@ -11,8 +11,8 @@ RULESET:
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-proxy.list
   - - DIRECT
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-direct.list
-  - - 🛑 广告
-    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list
+  # - - 🛑 广告
+  #   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list
 
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
@@ -100,9 +100,9 @@ CUSTOM_PROXY_GROUP:
   - name: 🎮 游戏平台
     type: select
     prior: DIRECT
-  - name: 🛑 广告
-    type: select
-    prior: REJECT
+  # - name: 🛑 广告
+  #   type: select
+  #   prior: REJECT
   - name: 🐟 漏网之鱼
     type: select
     prior: DIRECT
