@@ -50,6 +50,7 @@ DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,gitbook.io
 DOMAIN-SUFFIX,gitbook.com
 DOMAIN,vercel.com
+DOMAIN,web.archive.org
 DOMAIN,jsfiddle.net
 DOMAIN-SUFFIX,jshell.net
 DOMAIN-SUFFIX,leetcode.com
