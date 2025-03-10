@@ -31,9 +31,9 @@ RULESET:
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.list
   - - 🌍 国外媒体
-    - https://cdn.jsdelivr.net/gh/SubConv/ZJU-Rule@main/Clash/OneDrive.list
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
   - - DIRECT
-    - https://cdn.jsdelivr.net/gh/SubConv/ZJU-Rule@main/Clash/Microsoft.list
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iCloud/iCloud.list
   - - DIRECT
