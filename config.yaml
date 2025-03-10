@@ -11,8 +11,6 @@ RULESET:
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-proxy.list
   - - DIRECT
     - https://raw.githubusercontent.com/bowencool/SubConv/main/rules/bowen-direct.list
-  # - - 🛑 广告
-  #   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list
 
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
@@ -36,12 +34,12 @@ RULESET:
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/OneDrive.list
   - - DIRECT
     - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Microsoft.list
-  # - - 🍎 iCloud
   - - DIRECT
     - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iCloud/iCloud.list
-  # - - 🍎 Apple
   - - DIRECT
     - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+  - - DIRECT
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/SteamCN/SteamCN.list
   - - DIRECT
     - "[]GEOIP,CN"
 
@@ -50,37 +48,31 @@ RULESET:
   - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list
   - - 🇺🇸 美国自动
-    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BardAI/BardAI.list
-  - - 🇺🇸 美国自动
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
   - - DIRECT
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/GoogleFCM.list
-  - - 🌍 国外媒体
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Google.list
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleFCM/GoogleFCM.list
+  - - 🇺🇸 美国自动
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list
+  - - 🇺🇸 美国自动
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
+  - - 🇺🇸 美国自动
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitLab/GitLab.list
-  # - - 🌍 国外媒体
-  #   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Slack/Slack.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Notion/Notion.list
   - - 🌍 国外媒体
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Telegram.list
-  - - 🇺🇸 美国自动
-    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-  # - - 🇺🇸 美国自动
-  #   - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
-  - - 🇺🇸 美国自动
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/YouTube.list
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list
   - - 🌍 国外媒体
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Spotify.list
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.list
   - - 🎮 游戏平台
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Epic.list
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Epic/Epic.list
   - - 🎮 游戏平台
-    - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Steam.list
+    - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.list
   - - 🐟 漏网之鱼
     - "[]FINAL"
 CUSTOM_PROXY_GROUP:
@@ -88,12 +80,6 @@ CUSTOM_PROXY_GROUP:
     type: select
     manual: true
     rule: false
-  # - name: 🍎 Apple
-  #   type: select
-  #   prior: DIRECT
-  # - name: 🍎 iCloud
-  #   type: select
-  #   prior: DIRECT
   - name: 🌍 国外媒体
     type: select
     prior: ♻️ 自动选择
@@ -126,38 +112,6 @@ CUSTOM_PROXY_GROUP:
     type: url-test
     rule: false
     regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
-  # - - 🎮 游戏平台
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Sony.list
-  # - - 🎮 游戏平台
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/Ruleset/Nintendo.list
-  # - - DIRECT
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/LocalAreaNetwork.list
-  # - - DIRECT
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/UnBan.list
-  # - - 🛑 广告
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanAD.list
-  # - - 🛑 广告
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyList.list
-  # - - 🛑 广告
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyListChina.list
-  # - - 🍃 应用净化
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanProgramAD.list
-  # - - 🛡️ 隐私防护
-  #   - https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/BanEasyPrivacy.list
-  # - name: 🇨🇳 台湾自动
-  #   type: url-test
-  #   rule: false
-  #   regex: 🇹🇼|TW|Taiwan|新北|彰化|CHT|台|HINET
-  # - name: 🇰🇷 韩国自动
-  #   type: url-test
-  #   rule: false
-  #   regex: 🇰🇷|KO?R|Korea|首尔|韩|韓
-  # - name: 🍃 应用净化
-  #   type: select
-  #   prior: REJECT
-  # - name: 🛡️ 隐私防护
-  #   type: select
-  #   prior: REJECT
 
   # - name: 🔯 故障转移
   #   type: fallback
