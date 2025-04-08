@@ -5,8 +5,8 @@ HEAD:
   log-level: info
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
-  - - 🇺🇸 美国自动
-    - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/us.list
+  # - - 🇺🇸 美国自动
+  #   - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/us.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/bowen-proxy.list
   - - DIRECT
@@ -45,20 +45,20 @@ RULESET:
   - - DIRECT
     - "[]GEOIP,CN"
 
-  - - 🇺🇸 美国自动
+  - - AI
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
-  - - 🇺🇸 美国自动
+  - - AI
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list
-  - - 🇺🇸 美国自动
+  - - AI
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
   - - DIRECT
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleFCM/GoogleFCM.list
-  - - 🇺🇸 美国自动
+  - - Google
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
-  - - 🇺🇸 美国自动
-    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-  - - 🇺🇸 美国自动
+  - - YouTube
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
+  - - Twitter
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
   - - 🌍 国外媒体
@@ -85,6 +85,18 @@ CUSTOM_PROXY_GROUP:
   - name: 🌍 国外媒体
     type: select
     prior: ♻️ 自动选择
+  - name: AI
+    type: select
+    prior: 🇺🇸 美国自动
+  - name: Google
+    type: select
+    prior: 🇺🇸 美国自动
+  - name: YouTube
+    type: select
+    prior: ♻️ 自动选择
+  - name: Twitter
+    type: select
+    prior: 🇺🇸 美国自动
   - name: 🐟 漏网之鱼
     type: select
     prior: DIRECT
