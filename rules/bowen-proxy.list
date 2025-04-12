@@ -43,6 +43,7 @@ DOMAIN-KEYWORD,appstorrent
 DOMAIN,formulae.brew.sh
 DOMAIN,production.cloudflare.docker.com
 DOMAIN,hub.docker.com
+DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,zoom.us
 DOMAIN-SUFFIX,huggingface.co
 DOMAIN-SUFFIX,ant.design
