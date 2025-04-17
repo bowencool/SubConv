@@ -70,6 +70,8 @@ RULESET:
   - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
   - - 🌍 国外媒体
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Dropbox/Dropbox.list
+  - - 🌍 国外媒体
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.list
   - - 🎮 游戏平台
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.list
