@@ -9,6 +9,7 @@ DOMAIN,app.smartmailcloud.com
 IP-CIDR,130.211.33.145/32
 
 DOMAIN,userstyles.org
+DOMAIN-SUFFIX,box.com
 DOMAIN-SUFFIX,shuttleapp.rs
 DOMAIN-SUFFIX,beacons.gvt2.com
 DOMAIN-KEYWORD,shadcn
