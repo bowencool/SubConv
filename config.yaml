@@ -84,6 +84,10 @@ CUSTOM_PROXY_GROUP:
     type: select
     manual: true
     rule: false
+  - name: 🎯 节点选择
+    type: select
+    manual: true
+    rule: false
   - name: 🌍 国外媒体
     type: select
     prior: ♻️ 自动选择
