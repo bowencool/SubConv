@@ -135,12 +135,12 @@ CUSTOM_PROXY_GROUP:
     rule: false
     regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
 
-  # - name: 🔯 故障转移
-  #   type: fallback
-  #   rule: false
-  # - name: 🔮 负载均衡
-  #   type: load-balance
-  #   rule: false
+  - name: 🔯 故障转移
+    type: fallback
+    rule: false
+  - name: 🔮 负载均衡
+    type: load-balance
+    rule: false
   # - name: 🔮 香港负载均衡
   #   type: load-balance
   #   rule: false
