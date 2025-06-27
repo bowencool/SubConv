@@ -55,8 +55,8 @@ DOMAIN-SUFFIX,us
 DOMAIN-SUFFIX,ca
 DOMAIN-KEYWORD,appstorrent
 DOMAIN,formulae.brew.sh
-DOMAIN,production.cloudflare.docker.com
-DOMAIN,hub.docker.com
+#DOMAIN,production.cloudflare.docker.com
+DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,zoom.us
 DOMAIN-SUFFIX,huggingface.co
@@ -102,10 +102,6 @@ DOMAIN-SUFFIX,javdb.com
 DOMAIN-SUFFIX,mushroomtrack.com
 DOMAIN-SUFFIX,jable.tv
 # DNS
-IP-CIDR,149.112.112.112/32
-IP-CIDR,208.67.222.222/32
-IP-CIDR,208.67.220.220/32
-IP-CIDR,9.9.9.9/32
 IP-CIDR,8.8.8.8/32
 IP-CIDR,8.8.4.4/32
 IP-CIDR,1.0.0.1/32
