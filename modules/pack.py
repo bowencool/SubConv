@@ -57,10 +57,13 @@ async def pack(url: list, urlstandalone: list, urlstandby:list, urlstandbystanda
     if url or urlstandby:
         if url:
             for u in range(len(url)):
+                provider_url = url[u]
+                if notproxyrule is None:
+                    provider_url = "{}proxy?{}".format(base_url, urlencode({"url": url[u]}))
                 providers["proxy-providers"].update({
                     "subscription{}".format(u): {
                         "type": "http",
-                        "url": url[u],
+                        "url": provider_url,
                         "interval": int(interval),
                         "path": "./sub/subscription{}.yaml".format(u),
                         "health-check": {
@@ -73,10 +76,13 @@ async def pack(url: list, urlstandalone: list, urlstandby:list, urlstandbystanda
                 })
         if urlstandby:
             for u in range(len(urlstandby)):
+                provider_url = urlstandby[u]
+                if notproxyrule is None:
+                    provider_url = "{}proxy?{}".format(base_url, urlencode({"url": urlstandby[u]}))
                 providers["proxy-providers"].update({
                     "subscription{}".format("sub"+str(u)): {
                         "type": "http",
-                        "url": urlstandby[u],
+                        "url": provider_url,
                         "interval": int(interval),
                         "path": "./sub/subscription{}.yaml".format("sub"+str(u)),
                         "health-check": {
@@ -96,7 +102,7 @@ async def pack(url: list, urlstandalone: list, urlstandby:list, urlstandbystanda
     proxyGroups = {
         "proxy-groups": []
     }
-    
+
     # add proxy select
     proxySelect = {
         "name": "🚀 节点选择",
@@ -110,7 +116,7 @@ async def pack(url: list, urlstandalone: list, urlstandby:list, urlstandbystanda
 
     if len(config.configInstance.CUSTOM_PROXY_GROUP) > 0:
         proxyGroups["proxy-groups"].append(proxySelect)
-    
+
 
     # generate subscriptions and standby subscriptions list
     subscriptions = []
@@ -334,5 +340,5 @@ async def pack(url: list, urlstandalone: list, urlstandby:list, urlstandbystanda
     result.update(rules)
 
     yaml.SafeDumper.ignore_aliases = lambda *args : True
-    
+
     return yaml.safe_dump(result, allow_unicode=True, sort_keys=False)
