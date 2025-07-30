@@ -94,16 +94,25 @@ async def robots():
 # subscription to proxy-provider
 @app.get("/provider")
 async def provider(request: Request):
-    headers = {'Content-Type': 'text/yaml;charset=utf-8'}
     url = request.query_params.get("url")
+    if not url:
+        raise HTTPException(status_code=400, detail="URL parameter is required")
+
     async with httpx.AsyncClient() as client:
         resp = await client.get(url, headers={'User-Agent': 'v2rayn'})
         if resp.status_code < 200 or resp.status_code >= 400:
             raise HTTPException(status_code=resp.status_code, detail=resp.text)
         result = await parse.parseSubs(resp.text)
-    return Response(content=result, headers=headers)
 
-    
+    # Encode the result to bytes to get proper content length
+    result_bytes = result.encode('utf-8')
+    headers = {
+        'Content-Type': 'text/yaml; charset=utf-8',
+        'Content-Length': str(len(result_bytes))
+    }
+    return Response(content=result_bytes, headers=headers)
+
+
 # subscription converter api
 @app.get("/sub")
 async def sub(request: Request):
@@ -124,7 +133,7 @@ async def sub(request: Request):
     url = args.get("url")
     url = re.split(r"[|\n]", url)
     # remove empty lines
-    tmp = list(filter(lambda x: x!="", url)) 
+    tmp = list(filter(lambda x: x!="", url))
     url = []
     urlstandalone = []
     for i in tmp:
@@ -155,7 +164,7 @@ async def sub(request: Request):
             urlstandby = None
         if len(urlstandbystandalone) == 0:
             urlstandbystandalone = None
-        
+
     if urlstandalone:
         urlstandalone = await converter.ConvertsV2Ray(urlstandalone)
     if urlstandbystandalone:
