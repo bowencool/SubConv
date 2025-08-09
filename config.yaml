@@ -47,6 +47,10 @@ RULESET:
   - - DIRECT
     - "[]GEOIP,CN"
 
+  - - Crypto
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Crypto/Crypto.list
+  - - Crypto
+    - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cryptocurrency/Cryptocurrency.list
   - - AI
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
   - - AI
@@ -103,6 +107,9 @@ CUSTOM_PROXY_GROUP:
     type: select
     prior: ♻️ 自动选择
   - name: Twitter
+    type: select
+    prior: 🇺🇸 美国自动
+  - name: Crypto
     type: select
     prior: 🇺🇸 美国自动
   - name: 🛑 广告
