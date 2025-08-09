@@ -8,8 +8,10 @@ DOMAIN-SUFFIX,coze.com
 DOMAIN-SUFFIX,ohmygpt.com
 DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,download.snipaste.com
 DOMAIN,giscus.app
+DOMAIN-KEYWORD,greasyfork
+DOMAIN-KEYWORD,sleazyfork
+DOMAIN,userstyles.org
 
 # Tailscale
 DOMAIN-SUFFIX,tailscale.com
@@ -20,7 +22,6 @@ IP-CIDR,100.64.0.0/10
 DOMAIN,app.smartmailcloud.com
 IP-CIDR,130.211.33.145/32
 
-DOMAIN,userstyles.org
 DOMAIN-SUFFIX,box.com
 DOMAIN-SUFFIX,boxcdn.net
 DOMAIN-SUFFIX,shuttleapp.rs
@@ -81,7 +82,6 @@ DOMAIN-SUFFIX,mojie.live
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,datadoghq.com
 DOMAIN-SUFFIX,wikipedia.org
-DOMAIN-SUFFIX,nexus-cdn.com
 # Reddit
 DOMAIN-SUFFIX,reddit.com
 DOMAIN-SUFFIX,redd.it
