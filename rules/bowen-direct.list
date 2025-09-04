@@ -10,5 +10,6 @@ DOMAIN-SUFFIX,fiverr.com
 DOMAIN-SUFFIX,tailscale.io
 DOMAIN-SUFFIX,xbox.live
 DOMAIN-SUFFIX,umami.is
+# ohmygpt
 DOMAIN-SUFFIX,opapi.win
-DOMAIN,aigptx.top
+DOMAIN-SUFFIX,ohmycdn.com
