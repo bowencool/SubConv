@@ -44,16 +44,6 @@ DOMAIN,forums.unraid.net
 # warp
 DOMAIN-SUFFIX,warp.dev
 DOMAIN-SUFFIX,rudderstack.com
-# 国外域名
-DOMAIN-SUFFIX,eu
-DOMAIN-SUFFIX,hk
-DOMAIN-SUFFIX,jp
-DOMAIN-SUFFIX,kr
-DOMAIN-SUFFIX,sg
-DOMAIN-SUFFIX,tw
-DOMAIN-SUFFIX,uk
-DOMAIN-SUFFIX,us
-DOMAIN-SUFFIX,ca
 DOMAIN-KEYWORD,appstorrent
 DOMAIN,formulae.brew.sh
 #DOMAIN,production.cloudflare.docker.com
