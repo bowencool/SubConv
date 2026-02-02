@@ -72,10 +72,6 @@ DOMAIN-SUFFIX,mojie.live
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,datadoghq.com
 DOMAIN-SUFFIX,wikipedia.org
-# Reddit
-DOMAIN-SUFFIX,reddit.com
-DOMAIN-SUFFIX,redd.it
-DOMAIN,www.redditstatic.com
 # npm
 DOMAIN-SUFFIX,npm.community
 DOMAIN-SUFFIX,npmjs.com
