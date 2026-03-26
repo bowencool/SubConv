@@ -2,21 +2,12 @@ DOMAIN-SUFFIX,tradingview.com
 DOMAIN-SUFFIX,interactivebrokers.com
 DOMAIN-SUFFIX,ibkr.com
 DOMAIN-SUFFIX,imgur.com
-DOMAIN-SUFFIX,phind.com
-DOMAIN-SUFFIX,devv.ai
-DOMAIN-SUFFIX,coze.com
 DOMAIN-SUFFIX,ohmygpt.com
-DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN,giscus.app
 DOMAIN-KEYWORD,greasyfork
 DOMAIN-KEYWORD,sleazyfork
 DOMAIN,userstyles.org
-
-# Tailscale
-DOMAIN-SUFFIX,tailscale.com
-DOMAIN-KEYWORD,headscale
-IP-CIDR,100.64.0.0/10
 
 # spark
 DOMAIN,app.smartmailcloud.com
@@ -25,12 +16,10 @@ IP-CIDR,130.211.33.145/32
 DOMAIN-SUFFIX,box.com
 DOMAIN-SUFFIX,boxcdn.net
 DOMAIN-SUFFIX,shuttleapp.rs
-DOMAIN-SUFFIX,beacons.gvt2.com
 DOMAIN-KEYWORD,shadcn
 DOMAIN-KEYWORD,recharts
 DOMAIN-KEYWORD,ipv6boy
 # DOMAIN-KEYWORD,ifast
-DOMAIN-SUFFIX,dribbble.com
 DOMAIN,web.dev
 DOMAIN-KEYWORD,v2ex
 DOMAIN-SUFFIX,theverge.com
@@ -67,7 +56,6 @@ DOMAIN-SUFFIX,codementor.io
 DOMAIN-KEYWORD,discord
 DOMAIN-SUFFIX,apkpure.com
 DOMAIN-KEYWORD,wmsxwd
-DOMAIN-SUFFIX,mojie.live
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,datadoghq.com
 DOMAIN-SUFFIX,wikipedia.org

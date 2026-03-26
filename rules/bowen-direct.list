@@ -6,8 +6,6 @@ DOMAIN,gh-proxy.com
 DOMAIN,dockerproxy.com
 DOMAIN,docker-proxy.com
 DOMAIN-SUFFIX,upwork.com
-DOMAIN-SUFFIX,fiverr.com
-DOMAIN-SUFFIX,tailscale.io
 DOMAIN-SUFFIX,xbox.live
 DOMAIN-SUFFIX,umami.is
 
@@ -15,6 +13,7 @@ DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-KEYWORD,hsbc
 
-# ohmygpt
-DOMAIN-SUFFIX,opapi.win
-DOMAIN-SUFFIX,ohmycdn.com
+# Tailscale
+DOMAIN-KEYWORD,tailscale
+DOMAIN-KEYWORD,headscale
+IP-CIDR,100.64.0.0/10
