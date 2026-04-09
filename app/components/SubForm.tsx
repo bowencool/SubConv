@@ -22,7 +22,10 @@ export default function SubForm() {
   const [showToast, setShowToast] = useState(false);
   const [linkError, setLinkError] = useState(false);
   const [timeError, setTimeError] = useState(false);
-  const toastTimer = useRef<ReturnType<typeof setTimeout>>();
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  );
+  const outputRef = useRef<HTMLTextAreaElement>(null);
 
   // Restore from localStorage
   useEffect(() => {
@@ -58,6 +61,10 @@ export default function SubForm() {
     saveConfig();
   }, [saveConfig]);
 
+  useEffect(() => {
+    return () => clearTimeout(toastTimer.current);
+  }, []);
+
   const handleGenerate = () => {
     setLinkError(false);
     setTimeError(false);
@@ -92,13 +99,65 @@ export default function SubForm() {
     setLinkOutput(result);
   };
 
-  const handleCopy = () => {
+  const showCopiedToast = () => {
+    setShowToast(true);
+    clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setShowToast(false), 2000);
+  };
+
+  const copyWithFallback = (text: string) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+
+    const selection = document.getSelection();
+    const originalRange =
+      selection && selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+
+    textArea.focus();
+    textArea.select();
+    textArea.setSelectionRange(0, text.length);
+
+    const copied = document.execCommand("copy");
+
+    document.body.removeChild(textArea);
+
+    if (originalRange && selection) {
+      selection.removeAllRanges();
+      selection.addRange(originalRange);
+    }
+
+    outputRef.current?.blur();
+
+    return copied;
+  };
+
+  const handleCopy = async () => {
     if (!linkOutput) return;
-    navigator.clipboard.writeText(linkOutput).then(() => {
-      setShowToast(true);
-      clearTimeout(toastTimer.current);
-      toastTimer.current = setTimeout(() => setShowToast(false), 2000);
-    });
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(linkOutput);
+      } else if (!copyWithFallback(linkOutput)) {
+        return;
+      }
+
+      showCopiedToast();
+    } catch {
+      if (copyWithFallback(linkOutput)) {
+        showCopiedToast();
+      }
+    }
+  };
+
+  const handleOpen = () => {
+    if (!linkOutput) return;
+    window.open(linkOutput, "_blank", "noopener,noreferrer");
   };
 
   const inputClass =
@@ -221,15 +280,25 @@ export default function SubForm() {
         <div className="relative flex w-full">
           <textarea
             id="linkOutput"
+            ref={outputRef}
             rows={3}
             readOnly
-            className={`${inputClass} bg-zinc-50/50 dark:bg-zinc-900/50 pr-20 break-all`}
+            className={`${inputClass} bg-zinc-50/50 dark:bg-zinc-900/50 pr-40 break-all`}
             value={linkOutput}
           />
-          <div className="absolute right-2 top-2">
+          <div className="absolute right-2 top-2 flex gap-2">
+            <button
+              onClick={handleOpen}
+              disabled={!linkOutput}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
+              title="直接打开结果链接"
+            >
+              直接打开
+            </button>
             <button
               onClick={handleCopy}
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
+              disabled={!linkOutput}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
               title="复制到剪贴板"
             >
               复制
