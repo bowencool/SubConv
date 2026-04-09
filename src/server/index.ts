@@ -168,28 +168,6 @@ if (process.env["NODE_ENV"] !== "development") {
 
 // Node.js entrypoint
 if (process.argv[1] && (process.argv[1].endsWith("index.js") || process.argv[1].endsWith("index.ts"))) {
-  // parse --generate-config
-  const genIdx = process.argv.indexOf("--generate-config") !== -1
-    ? process.argv.indexOf("--generate-config")
-    : process.argv.indexOf("-G");
-  if (genIdx !== -1) {
-    const template = process.argv[genIdx + 1];
-    const { writeFileSync } = await import("fs");
-    const yamlLib = await import("js-yaml");
-    const { templateDefault, templateZju } = await import("./config_template.js");
-    if (template === "default") {
-      writeFileSync("config.yaml", yamlLib.dump(templateDefault, { noCompatMode: true, sortKeys: false }));
-      console.log("Generated default config.yaml");
-    } else if (template === "zju") {
-      writeFileSync("config.yaml", yamlLib.dump(templateZju, { noCompatMode: true, sortKeys: false }));
-      console.log("Generated zju config.yaml");
-    } else {
-      console.error("Unknown template. Use 'default' or 'zju'");
-      process.exit(1);
-    }
-    process.exit(0);
-  }
-
   const portArg = process.argv.indexOf("--port") !== -1
     ? process.argv.indexOf("--port")
     : process.argv.indexOf("-P");
