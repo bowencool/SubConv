@@ -27,3 +27,21 @@ changelog:
     - title: "Security"
       labels:
         - "security"
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    uses: ./.github/workflows/build-image.yml
+    secrets: inherit
+    with:
+      tags: ${{ github.ref_name }}
