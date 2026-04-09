@@ -8,7 +8,9 @@ on:
     paths:
       - '.github/workflows/build-image.yml'
       - '.github/workflows/build-image-dev.yml'
+      - '.dockerignore'
       - 'Dockerfile'
+      - 'docker-compose.yml'
       - 'app/**'
       - 'lib/**'
       - 'public/**'
