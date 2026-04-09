@@ -38,14 +38,22 @@ export function urlSafe(s: string): string {
 }
 
 export function base64RawStdDecode(s: string): string {
-  // Add padding if necessary
   const padded = s + "=".repeat((4 - (s.length % 4)) % 4);
-  return Buffer.from(padded, "base64").toString("utf-8");
+  const binary = atob(padded);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return new TextDecoder().decode(bytes);
 }
 
 export function base64RawURLDecode(s: string): string {
-  // URL-safe base64: replace - with + and _ with /
   const std = s.replace(/-/g, "+").replace(/_/g, "/");
   const padded = std + "=".repeat((4 - (std.length % 4)) % 4);
-  return Buffer.from(padded, "base64").toString("utf-8");
+  const binary = atob(padded);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return new TextDecoder().decode(bytes);
 }

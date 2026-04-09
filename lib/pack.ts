@@ -1,6 +1,6 @@
 import yaml from "js-yaml";
-import { mkListProxyNames } from "./parse.js";
-import { configInstance } from "./config.js";
+import { mkListProxyNames } from "./parse";
+import { configInstance } from "./config";
 
 type ProxyRecord = Record<string, unknown>;
 

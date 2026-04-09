@@ -1,4 +1,9 @@
 {
+  "buildCommand": "VERCEL=1 vinext build",
+  "framework": null,
+  "installCommand": "npm ci"
+}
+{
   "version": 2,
   "builds": [
     {

@@ -4,23 +4,31 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -p tsconfig.server.json && vite build",
-    "start": "node dist/server/index.js"
+    "dev": "vinext dev --port 48080",
+    "build": "vinext build",
+    "start": "vinext start --port 48080",
+    "deploy": "vinext deploy"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.0",
-    "hono": "^4.7.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@hono/vite-dev-server": "^0.18.0",
+    "@cloudflare/vite-plugin": "^1.31.1",
     "@tailwindcss/vite": "^4.2.2",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.19.17",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitejs/plugin-rsc": "^0.5.23",
+    "nitro": "^3.0.260311-beta",
+    "react-server-dom-webpack": "^19.2.5",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.7.0",
-    "vite": "^6.0.0"
+    "vinext": "^0.0.41",
+    "vite": "^8.0.8",
+    "wrangler": "^4.81.0"
   },
   "license": "MPL-2.0"
 }

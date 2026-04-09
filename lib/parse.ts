@@ -1,5 +1,5 @@
 import yaml from "js-yaml";
-import { convertsV2Ray } from "./convert/converter.js";
+import { convertsV2Ray } from "./convert/converter";
 
 type ProxyRecord = Record<string, unknown>;
 

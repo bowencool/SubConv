@@ -5,8 +5,8 @@ import {
   randUserAgent,
   uniqueName,
   urlSafe,
-} from "./util.js";
-import { handleVShareLink } from "./v.js";
+} from "./util";
+import { handleVShareLink } from "./v";
 
 type ProxyRecord = Record<string, unknown>;
 

@@ -1,4 +1,4 @@
-import { get, randUserAgent, uniqueName } from "./util.js";
+import { get, randUserAgent, uniqueName } from "./util";
 
 type ProxyRecord = Record<string, unknown>;
 
