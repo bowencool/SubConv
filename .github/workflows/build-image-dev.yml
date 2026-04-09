@@ -9,10 +9,9 @@ on:
       - '.github/workflows/build-image.yml'
       - '.github/workflows/build-image-dev.yml'
       - 'Dockerfile'
-      - 'modules/**'
-      - 'static/**'
-      - 'api.py'
-      - 'requirements.txt'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
   workflow_dispatch:
 
 permissions:

@@ -24,10 +24,6 @@ jobs:
         run: |
           echo "tag=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_OUTPUT
 
-  build:
-    needs: setup
-    uses: ./.github/workflows/build.yml
-
   build-image:
     needs: setup
     uses: ./.github/workflows/build-image.yml
@@ -37,26 +33,8 @@ jobs:
 
   release:
     if: github.repository == 'SubConv/SubConv'
-    needs: [build, build-image]
+    needs: [build-image]
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Display artifacts
-        run: ls -R
-
-      - name: zip for each platform
-        run: |
-          for dir in subconv-*; do
-            if [ -d "$dir" ]; then
-              echo "----- Zip $dir -----"
-              (cd $dir && zip -r9 "../$dir.zip" ./*)
-            fi
-          done
-
       - name: Release
         uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            subconv-*.zip
