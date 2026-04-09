@@ -1,5 +1,5 @@
 {
-  "buildCommand": "VERCEL=1 vinext build",
+  "buildCommand": "NITRO_PRESET=vercel npx vite build",
   "framework": null,
   "installCommand": "npm ci"
 }

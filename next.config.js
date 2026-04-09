@@ -1,5 +1,7 @@
+const isNitroDeployment = Boolean(process.env.NITRO_PRESET || process.env.VERCEL);
+
 const nextConfig = {
-  output: "standalone",
+  ...(isNitroDeployment ? {} : { output: "standalone" }),
   async rewrites() {
     return [
       { source: "/sub", destination: "/api/sub" },

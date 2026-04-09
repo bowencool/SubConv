@@ -34,7 +34,7 @@ vim config.yaml
 docker compose up -d
 ```
 
-The service listens on port `8080` by default. Edit `docker-compose.yml` to change it.
+The service listens on port `48080` by default. Edit `docker-compose.yml` to change it.
 
 ```yaml
 # docker-compose.yml
@@ -43,7 +43,7 @@ services:
     image: ghcr.io/bowencool/subconv:latest
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "48080:48080"
     volumes:
       - ./config.yaml:/app/config.yaml
 ```
@@ -55,14 +55,14 @@ Requires Node.js 22+.
 ```bash
 npm install
 npm run build
-npm start          # PORT defaults to 8080
+npm start          # PORT defaults to 48080
 ```
 
 Set environment variables as needed:
 
 | Variable | Default | Description |
 |---|---|---|
-| `PORT` | `8080` | Listening port |
+| `PORT` | `48080` | Listening port |
 | `HOST` | `0.0.0.0` | Listening host |
 | `DISALLOW_ROBOTS` | — | Set to `true` to block search engine crawlers |
 
