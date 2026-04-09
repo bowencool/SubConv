@@ -14,7 +14,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_REPOSITORY: wouisb/subconv
+  IMAGE_REPOSITORY: ghcr.io/bowencool/subconv
 
 jobs:
   setup:
@@ -46,8 +46,9 @@ jobs:
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Cache Nuitka cache
       uses: actions/cache@v4

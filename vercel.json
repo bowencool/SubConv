@@ -2,34 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "api.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "static/**",
-      "use": "@vercel/static"
+      "src": "src/server/index.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/robots.txt(.*)",
-      "dest": "/api.py"
+      "dest": "/src/server/index.ts"
     },
     {
       "src": "/sub(.*)",
-      "dest": "/api.py"
+      "dest": "/src/server/index.ts"
     },
     {
       "src": "/provider(.*)",
-      "dest": "/api.py"
+      "dest": "/src/server/index.ts"
     },
     {
       "src": "/proxy(.*)",
-      "dest": "/api.py"
+      "dest": "/src/server/index.ts"
     },
     {
       "src": "/(.*)",
-      "dest": "/static/$1"
+      "dest": "/src/server/index.ts"
     }
   ]
 }

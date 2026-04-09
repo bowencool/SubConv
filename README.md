@@ -1,52 +1,121 @@
-# Subscription Converter
+# SubConv — Subscription Converter
 
 English | [中文](README_CN.md)
 
-![license](https://img.shields.io/github/license/SubConv/SubConv) ![last commit](https://img.shields.io/github/last-commit/SubConv/SubConv)
+![license](https://img.shields.io/github/license/bowencool/SubConv) ![last commit](https://img.shields.io/github/last-commit/bowencool/SubConv)
 
-~~This project is a subscription converter aiming to transform subscriptions to Clash format. If you need a ZJU version, please go to [SubConv 4 ZJU](https://github.com/SubConv/SubConv-4-ZJU)~~
-
-We provide configurations for general users and ZJU version, you can check [docs](https://subconv.is-sb.com) to learn how to deploy with the corresponding configuration file.
+A self-hosted subscription converter that transforms V2Ray / SS / SSR links or Clash configs into a [mihomo](https://github.com/MetaCubeX/mihomo)-compatible Clash config with auto-updating proxy-providers and rule-providers.
 
 ## Screenshot
 
-![screenshot](assets/image.png)
+![screenshot](public/screenshot.png)
 
 ## Features
 
-- Support Clash config and V2ray format base64 links (i.e. the original subscription does not have to be Clash)
-- A Web-UI (thanks to [@Musanico](https://github.com/musanico))
-- Rules based on ACL
-- Nodes auto update based on proxy-provider
-- Rules auto update based on rule-provider
-- Support proxy rule-provider to prevent failure to get rules from GitHub
-- Support multiple airpots
-- Display remaining traffic and total traffic (only useful when you use a single airport, requires your airport and Clash to support it at the same time, Clash for Windows, Clash Verge, Stash, Clash Meta for Android, etc. are known to support it)
-- Implement the api of subscription conversion to proxy-provider (normal people won't use it)
-- Support configuration file
+- Accepts V2Ray base64 links, share links, or existing Clash configs as input
+- Built-in Web UI for generating the converted subscription URL
+- Rule-based routing (ACL-style), auto-updates via rule-provider
+- Proxy-provider for node auto-update without restarting the client
+- Proxies rule-provider requests through the server to avoid GitHub access failures
+- Multiple airport (subscription) support — merge into one config
+- Traffic remaining / total display (requires airport and client both support `subscription-userinfo` header)
+- `/provider` API: converts a subscription into a standalone proxy-provider YAML
+- Fully configurable via `config.yaml`
 
-## Docs
+## Deploy
 
-[docs](https://subconv.is-sb.com) (both Chinese and English, but machine translated)
+### Docker (recommended)
 
-## P.S
+```bash
+# 1. Edit the config as needed
+vim config.yaml
 
-**Clash Core from Dreamacro** (original Clash core) is no longer supported. It's recommended to use [mihomo](https://github.com/MetaCubeX/mihomo) instead.
+# 2. Start
+docker compose up -d
+```
 
-## Usage
+The service listens on port `8080` by default. Edit `docker-compose.yml` to change it.
 
-Deploy by yourself according to [docs](https://subconv.is-sb.com)
+```yaml
+# docker-compose.yml
+services:
+  subconv:
+    image: ghcr.io/bowencool/subconv:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yaml:/app/config.yaml
+```
 
-## Contribute
+### Node.js
 
-Welcome issue and PR. If you want to contribute, please create a new branch from main and then create a PR to dev, or you can merge main into dev first and then make changes in dev, and finally create a PR to dev branch.
+Requires Node.js 22+.
 
-## Credits
+```bash
+npm install
+npm run build
+npm start          # PORT defaults to 8080
+```
 
-- [subconverter](https://github.com/tindy2013/subconverter)
-- [mihomo](https://github.com/MetaCubeX/mihomo)
-- ~~[Proxy Provider Converter](https://github.com/qier222/proxy-provider-converter)~~
+Set environment variables as needed:
+
+| Variable | Default | Description |
+|---|---|---|
+| `PORT` | `8080` | Listening port |
+| `HOST` | `0.0.0.0` | Listening host |
+| `DISALLOW_ROBOTS` | — | Set to `true` to block search engine crawlers |
+
+## API
+
+### `GET /sub` — Convert subscription
+
+| Parameter | Required | Description |
+|---|---|---|
+| `url` | ✅ | Subscription URL(s) or share links, separated by `\|` or newline |
+| `urlstandby` | — | Standby nodes (same format), only appear in manual-select groups |
+| `interval` | — | Rule/node update interval in seconds (default: `1800`) |
+| `npr` | — | Set `1` to fetch rule-providers directly from GitHub instead of proxying |
+| `short` | — | Set `1` to output a short proxy-only config |
+
+**Example:**
+```
+https://your-domain/sub?url=https%3A%2F%2Fexample.com%2Fsub
+```
+
+### `GET /provider` — Subscription to proxy-provider
+
+Converts a raw subscription into a Clash proxy-provider YAML, useful for referencing nodes in a custom config.
+
+```
+https://your-domain/provider?url=<subscription_url>
+```
+
+### `GET /proxy` — Rule-provider proxy pass
+
+Proxies a URL through the server, used internally to fetch rule lists from GitHub when `npr` is not set.
+
+## Configuration (`config.yaml`)
+
+The config file controls the Clash output. Key sections:
+
+```yaml
+# Clash HEAD block — merged into the output config as-is
+HEAD:
+  mixed-port: 7890
+  allow-lan: true
+  # ... other Clash options
+
+# URL used for latency testing
+TEST_URL: https://www.gstatic.com/generate_204
+
+# Rule sets — each entry is [proxy_group, rule_list_url]
+RULESET:
+  - ["🌍 Proxy", "https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/bowen-proxy.list"]
+  - ["DIRECT",   "https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/bowen-direct.list"]
+  # ... more rules
+```
 
 ## License
 
-This project is distributed under [MPL-2.0 License](https://github.com/SubConv/SubConv/blob/main/LICENSE)
+[MPL-2.0](LICENSE)
