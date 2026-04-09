@@ -20,7 +20,6 @@ permissions:
 
 jobs:
   build-and-push:
-    if: github.repository == 'SubConv/SubConv'
     uses: ./.github/workflows/build-image.yml
     secrets: inherit
     with:
