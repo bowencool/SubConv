@@ -3,37 +3,3 @@
   "framework": null,
   "installCommand": "npm ci"
 }
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "src/server/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "dist/client/**"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/robots.txt(.*)",
-      "dest": "/src/server/index.ts"
-    },
-    {
-      "src": "/sub(.*)",
-      "dest": "/src/server/index.ts"
-    },
-    {
-      "src": "/provider(.*)",
-      "dest": "/src/server/index.ts"
-    },
-    {
-      "src": "/proxy(.*)",
-      "dest": "/src/server/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/src/server/index.ts"
-    }
-  ]
-}
