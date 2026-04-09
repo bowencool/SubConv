@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { handle } from "hono/vercel";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { parseSubs } from "./modules/parse.js";
 import { convertsV2Ray } from "./modules/convert/converter.js";
@@ -185,4 +186,4 @@ if (process.argv[1] && (process.argv[1].endsWith("index.js") || process.argv[1].
   serve({ fetch: app.fetch, hostname: host, port });
 }
 
-export default app;
+export default handle(app);
