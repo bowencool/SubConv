@@ -1,8 +1,13 @@
 import yaml from "js-yaml";
-import { mkListProxyNames } from "./parse";
 import { configInstance } from "./config";
 
 type ProxyRecord = Record<string, unknown>;
+
+function listProxyNames(content: string[]): string[] {
+  return content.flatMap(
+    (chunk) => (chunk.match(/- name: (.+)/g) ?? []).map((match) => match.slice("- name: ".length).trim())
+  );
+}
 
 function randomInt(max: number): number {
   return Math.floor(Math.random() * max);
@@ -25,7 +30,7 @@ export interface PackParams {
   base_url: string;
 }
 
-export async function pack(params: PackParams): Promise<string> {
+export function pack(params: PackParams): string {
   const {
     url,
     urlstandalone,
@@ -39,7 +44,7 @@ export async function pack(params: PackParams): Promise<string> {
     base_url,
   } = params;
 
-  const providerProxyNames = await mkListProxyNames(content);
+  const providerProxyNames = listProxyNames(content);
   const result: Record<string, unknown> = {};
 
   if (!short) {

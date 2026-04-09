@@ -9,8 +9,7 @@ export async function GET(request: Request) {
   if (!resp.ok) {
     return new Response(await resp.text(), { status: resp.status });
   }
-  const text = await resp.text();
-  const result = await parseSubs(text);
+  const result = parseSubs(await resp.text());
   return new Response(result, {
     headers: { "Content-Type": "text/yaml;charset=utf-8" },
   });

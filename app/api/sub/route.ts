@@ -1,5 +1,5 @@
 import { parseSubs } from "@/lib/parse";
-import { convertsV2Ray } from "@/lib/convert/converter";
+import { parseProxyLinks } from "@/lib/convert";
 import { pack } from "@/lib/pack";
 
 export async function GET(request: Request) {
@@ -63,11 +63,11 @@ export async function GET(request: Request) {
   // Convert standalone V2Ray links
   let urlstandaloneProxies = null;
   if (urlstandalone) {
-    urlstandaloneProxies = await convertsV2Ray(urlstandalone);
+    urlstandaloneProxies = parseProxyLinks(urlstandalone);
   }
   let urlstandbystandaloneProxies = null;
   if (urlstandbyStandaloneStr) {
-    urlstandbystandaloneProxies = await convertsV2Ray(urlstandbyStandaloneStr);
+    urlstandbystandaloneProxies = parseProxyLinks(urlstandbyStandaloneStr);
   }
 
   // Build response headers
@@ -113,7 +113,7 @@ export async function GET(request: Request) {
       const text = await fetch(u, {
         headers: { "User-Agent": "v2rayn" },
       }).then((r) => r.text());
-      content.push(await parseSubs(text));
+      content.push(parseSubs(text));
       resolvedUrls.push(
         `${base}provider?${new URLSearchParams({ url: u }).toString()}`
       );
@@ -131,7 +131,7 @@ export async function GET(request: Request) {
   const domain = url.hostname.replace(/:\d+$/, "");
   const baseUrl = `${url.protocol}//${url.host}/`;
 
-  const result = await pack({
+  const result = pack({
     url: resolvedUrls.length > 0 ? resolvedUrls : null,
     urlstandalone: urlstandaloneProxies,
     urlstandby: resolvedStandby,

@@ -4,10 +4,9 @@ export async function GET(request: Request) {
   if (!url) return new Response("Missing url parameter", { status: 400 });
 
   const resp = await fetch(url);
-  const body = await resp.arrayBuffer();
   const headers = new Headers();
   resp.headers.forEach((v, k) => {
     headers.set(k, v);
   });
-  return new Response(body, { status: resp.status, headers });
+  return new Response(resp.body, { status: resp.status, headers });
 }
