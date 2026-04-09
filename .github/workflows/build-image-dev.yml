@@ -28,7 +28,25 @@ permissions:
   packages: write
 
 jobs:
+  check-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      has_tag: ${{ steps.check.outputs.has_tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: check
+        run: |
+          if git describe --exact-match --tags >/dev/null 2>&1; then
+            echo "has_tag=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_tag=false" >> $GITHUB_OUTPUT
+          fi
+
   build-and-push:
+    needs: check-tag
+    if: needs.check-tag.outputs.has_tag != 'true'
     uses: ./.github/workflows/build-image.yml
     secrets: inherit
     with:
