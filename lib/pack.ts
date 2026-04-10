@@ -92,11 +92,11 @@ export function pack(params: PackParams): string {
   if (urlstandby) {
     urlstandby.forEach((u, i) => {
       const providerUrl = u;
-      proxyProviders[`subscriptionsub${i}`] = {
+      proxyProviders[`standby${i}`] = {
         type: "http",
         url: providerUrl,
         interval: parseInt(interval),
-        path: `./sub/subscriptionsub${i}.yaml`,
+        path: `./sub/standby${i}.yaml`,
         "health-check": {
           enable: true,
           interval: 60,
@@ -113,7 +113,7 @@ export function pack(params: PackParams): string {
   const subscriptions: string[] = url ? url.map((_, i) => `subscription${i}`) : [];
   const standby: string[] = [...subscriptions];
   if (urlstandby) {
-    urlstandby.forEach((_, i) => standby.push(`subscriptionsub${i}`));
+    urlstandby.forEach((_, i) => standby.push(`standby${i}`));
   }
 
   // proxy-groups
