@@ -75,10 +75,7 @@ export function pack(params: PackParams): string {
   const proxyProviders: Record<string, unknown> = {};
   if (url) {
     url.forEach((u, i) => {
-      const providerUrl =
-        notproxyrule == null
-          ? `${base_url}proxy?${new URLSearchParams({ url: u }).toString()}`
-          : u;
+      const providerUrl = u;
       proxyProviders[`subscription${i}`] = {
         type: "http",
         url: providerUrl,
@@ -94,10 +91,7 @@ export function pack(params: PackParams): string {
   }
   if (urlstandby) {
     urlstandby.forEach((u, i) => {
-      const providerUrl =
-        notproxyrule == null
-          ? `${base_url}proxy?${new URLSearchParams({ url: u }).toString()}`
-          : u;
+      const providerUrl = u;
       proxyProviders[`subscriptionsub${i}`] = {
         type: "http",
         url: providerUrl,
