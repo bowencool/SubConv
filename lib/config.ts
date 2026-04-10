@@ -27,21 +27,27 @@ function parseYaml(raw: string): Config {
 }
 
 async function loadConfig(): Promise<Config> {
-  // 1. Bundled config.yaml (works on all platforms including CF Workers)
+  // 1. Filesystem config.yaml (supports Docker volume mounts)
+  //    Skipped silently on platforms without fs (CF Workers, Vercel Edge, etc.)
+  try {
+    const fs = await import("fs");
+    const path = await import("path");
+    const filePath = path.resolve(process.cwd(), "config.yaml");
+    const raw = fs.readFileSync(filePath, "utf-8");
+    if (raw.trim()) {
+      console.log(`Loading config from filesystem: ${filePath}`);
+      return parseYaml(raw);
+    }
+  } catch {
+    // fs not available or file not found — fall through
+  }
+
+  // 2. Bundled config.yaml (works on all platforms including CF Workers / Vercel)
   if (configRaw) {
     return parseYaml(configRaw);
   }
 
-  // 2. Remote URL via CONFIG_URL env var
-  const configUrl = process.env.CONFIG_URL;
-  if (configUrl) {
-    console.log(`Loading config from ${configUrl}`);
-    const resp = await fetch(configUrl);
-    if (!resp.ok) throw new Error(`Failed to fetch config (${resp.status}): ${configUrl}`);
-    return parseYaml(await resp.text());
-  }
-
-  throw new Error("No config available. Bundle config.yaml or set CONFIG_URL.");
+  throw new Error("No config available. Bundle config.yaml or bundle a config.");
 }
 
 export const configInstance: Config = await loadConfig();

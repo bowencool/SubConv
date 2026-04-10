@@ -15,7 +15,6 @@ FROM node:22-alpine
 WORKDIR /app
 
 COPY --from=builder /app/dist/standalone /app
-COPY --from=builder /app/config.yaml /app/config.yaml
 
 EXPOSE 48080
 
