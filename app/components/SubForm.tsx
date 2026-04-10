@@ -23,7 +23,7 @@ export default function SubForm() {
   const [linkError, setLinkError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
-    undefined
+    undefined,
   );
   const outputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -53,7 +53,7 @@ export default function SubForm() {
         standby: standbySwitch,
         standbyLink: standbyInput,
         proxy: proxySwitch,
-      })
+      }),
     );
   }, [linkInput, timeInput, standbySwitch, standbyInput, proxySwitch]);
 
@@ -170,10 +170,7 @@ export default function SubForm() {
     <div className="space-y-6">
       {/* 订阅链接 */}
       <div className="space-y-2">
-        <label
-          htmlFor="linkInput"
-          className="text-sm font-medium leading-none"
-        >
+        <label htmlFor="linkInput" className="text-sm font-medium leading-none">
           订阅链接
         </label>
         <textarea
@@ -248,10 +245,7 @@ export default function SubForm() {
 
       {/* 更新间隔 */}
       <div className="space-y-2">
-        <label
-          htmlFor="timeInput"
-          className="text-sm font-medium leading-none"
-        >
+        <label htmlFor="timeInput" className="text-sm font-medium leading-none">
           更新间隔{" "}
           <span className="text-xs text-zinc-500 dark:text-zinc-400 font-normal">
             (单位:秒)
@@ -286,24 +280,24 @@ export default function SubForm() {
             className={`${inputClass} bg-zinc-50/50 dark:bg-zinc-900/50 pr-40 break-all`}
             value={linkOutput}
           />
-          <div className="absolute right-2 top-2 flex gap-2">
-            <button
-              onClick={handleOpen}
-              disabled={!linkOutput}
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
-              title="直接打开结果链接"
-            >
-              直接打开
-            </button>
-            <button
-              onClick={handleCopy}
-              disabled={!linkOutput}
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
-              title="复制到剪贴板"
-            >
-              复制
-            </button>
-          </div>
+          {linkOutput && (
+            <div className="absolute right-2 top-2 flex gap-2">
+              <button
+                onClick={handleOpen}
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
+                title="直接打开结果链接"
+              >
+                直接打开
+              </button>
+              <button
+                onClick={handleCopy}
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700 h-7 px-3"
+                title="复制到剪贴板"
+              >
+                复制
+              </button>
+            </div>
+          )}
           {showToast && (
             <span className="absolute right-3 -top-6 text-xs text-green-600 dark:text-green-500 font-medium bg-green-50 dark:bg-green-950/50 px-2 py-1 rounded">
               已复制
