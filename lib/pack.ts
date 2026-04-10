@@ -3,12 +3,6 @@ import { configInstance } from "./config";
 
 type ProxyRecord = Record<string, unknown>;
 
-function listProxyNames(content: string[]): string[] {
-  return content.flatMap(
-    (chunk) => (chunk.match(/- name: (.+)/g) ?? []).map((match) => match.slice("- name: ".length).trim())
-  );
-}
-
 function randomInt(max: number): number {
   return Math.floor(Math.random() * max);
 }
@@ -22,7 +16,6 @@ export interface PackParams {
   urlstandalone: ProxyRecord[] | null;
   urlstandby: string[] | null;
   urlstandbystandalone: ProxyRecord[] | null;
-  content: string[];
   interval: string;
   domain: string;
   short: string | null | undefined;
@@ -36,7 +29,6 @@ export function pack(params: PackParams): string {
     urlstandalone,
     urlstandby,
     urlstandbystandalone,
-    content,
     interval,
     domain,
     short,
@@ -44,7 +36,6 @@ export function pack(params: PackParams): string {
     base_url,
   } = params;
 
-  const providerProxyNames = listProxyNames(content);
   const result: Record<string, unknown> = {};
 
   if (!short) {
@@ -162,7 +153,6 @@ export function pack(params: PackParams): string {
       type === "url-test"
     ) {
       let proxyGroup: Record<string, unknown> | null = { name, type };
-      const providerProxies: string[] = [];
       const proxyGroupProxies: string[] = [];
 
       if (regex != null) {
@@ -170,30 +160,23 @@ export function pack(params: PackParams): string {
         const re = new RegExp(regex, "i");
 
         if (manual) {
-          if (standby.length > 0) {
-            for (const p of standby) {
-              if (re.test(p)) {
-                providerProxies.push(p);
-                break;
-              }
-            }
-            if (providerProxies.length > 0) proxyGroup["use"] = standby;
-          }
+          const hasProviders = standby.length > 0 && standby.some((p) => re.test(p));
+          if (hasProviders) proxyGroup["use"] = standby;
           if (proxiesStandbyName.length > 0) {
             for (const p of proxiesStandbyName) {
               if (re.test(p)) proxyGroupProxies.push(p);
             }
             if (proxyGroupProxies.length > 0) proxyGroup["proxies"] = proxyGroupProxies;
           }
+          if (!hasProviders && proxyGroupProxies.length === 0) {
+            const selProxies = proxyGroupsList[0]["proxies"] as string[];
+            const idx = selProxies.indexOf(name);
+            if (idx !== -1) selProxies.splice(idx, 1);
+            proxyGroup = null;
+          }
         } else {
           if (subscriptions.length > 0) {
-            for (const p of providerProxyNames) {
-              if (re.test(p)) {
-                providerProxies.push(p);
-                break;
-              }
-            }
-            if (providerProxies.length > 0) proxyGroup["use"] = subscriptions;
+            proxyGroup["use"] = subscriptions;
           }
           if (proxiesName.length > 0) {
             for (const p of proxiesName) {
@@ -201,14 +184,12 @@ export function pack(params: PackParams): string {
             }
             if (proxyGroupProxies.length > 0) proxyGroup["proxies"] = proxyGroupProxies;
           }
-        }
-
-        if (providerProxies.length + proxyGroupProxies.length === 0) {
-          // remove from 节点选择
-          const selProxies = proxyGroupsList[0]["proxies"] as string[];
-          const idx = selProxies.indexOf(name);
-          if (idx !== -1) selProxies.splice(idx, 1);
-          proxyGroup = null;
+          if (subscriptions.length === 0 && proxyGroupProxies.length === 0) {
+            const selProxies = proxyGroupsList[0]["proxies"] as string[];
+            const idx = selProxies.indexOf(name);
+            if (idx !== -1) selProxies.splice(idx, 1);
+            proxyGroup = null;
+          }
         }
       } else {
         if (manual) {

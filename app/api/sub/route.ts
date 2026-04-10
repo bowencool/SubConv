@@ -1,4 +1,3 @@
-import { parseSubs } from "@/lib/parse";
 import { parseProxyLinks } from "@/lib/convert";
 import { pack } from "@/lib/pack";
 
@@ -61,14 +60,8 @@ export async function GET(request: Request) {
   }
 
   // Convert standalone V2Ray links
-  let urlstandaloneProxies = null;
-  if (urlstandalone) {
-    urlstandaloneProxies = parseProxyLinks(urlstandalone);
-  }
-  let urlstandbystandaloneProxies = null;
-  if (urlstandbyStandaloneStr) {
-    urlstandbystandaloneProxies = parseProxyLinks(urlstandbyStandaloneStr);
-  }
+  const urlstandaloneProxies = urlstandalone ? parseProxyLinks(urlstandalone) : null;
+  const urlstandbystandaloneProxies = urlstandbyStandaloneStr ? parseProxyLinks(urlstandbyStandaloneStr) : null;
 
   // Build response headers
   const headers: Record<string, string> = {
@@ -104,16 +97,11 @@ export async function GET(request: Request) {
     }
   }
 
-  // Fetch subscription content
-  const content: string[] = [];
+  // Build provider URLs
   const resolvedUrls: string[] = [];
   if (urlParam) {
     const base = `${url.protocol}//${url.host}/`;
     for (const u of urlParam) {
-      const text = await fetch(u, {
-        headers: { "User-Agent": "v2rayn" },
-      }).then((r) => r.text());
-      content.push(parseSubs(text));
       resolvedUrls.push(
         `${base}provider?${new URLSearchParams({ url: u }).toString()}`
       );
@@ -136,7 +124,6 @@ export async function GET(request: Request) {
     urlstandalone: urlstandaloneProxies,
     urlstandby: resolvedStandby,
     urlstandbystandalone: urlstandbystandaloneProxies,
-    content,
     interval,
     domain,
     short,

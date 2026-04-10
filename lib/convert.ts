@@ -583,8 +583,5 @@ export function parseProxyLinks(input: string): ProxyRecord[] {
     if (proxy) proxies.push(proxy);
   }
 
-  if (proxies.length === 0) {
-    throw new Error("No valid proxies found");
-  }
   return proxies;
 }

@@ -18,10 +18,9 @@ export function parseSubs(content: string): string {
         return yaml.dump({ proxies: filterProxies(proxies) }, { noCompatMode: true, sortKeys: false });
       }
     }
-    const proxies = parseProxyLinks(content);
-    return yaml.dump({ proxies: filterProxies(proxies) }, { noCompatMode: true, sortKeys: false });
   } catch {
-    const proxies = parseProxyLinks(content);
-    return yaml.dump({ proxies: filterProxies(proxies) }, { noCompatMode: true, sortKeys: false });
+    // not valid yaml, fall through
   }
+  const proxies = parseProxyLinks(content);
+  return yaml.dump({ proxies: filterProxies(proxies) }, { noCompatMode: true, sortKeys: false });
 }
