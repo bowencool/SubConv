@@ -75,7 +75,7 @@ export default function SubForm() {
       return;
     }
 
-    let result = `${location.protocol}//${location.host}/sub?url=${encodeURIComponent(linkInput)}`;
+    let result = `${location.protocol}//${location.host}/sub?url=${encodeURIComponent(linkInput.trim())}`;
 
     const time = timeInput.trim();
     if (time !== "") {
@@ -88,8 +88,9 @@ export default function SubForm() {
       }
     }
 
-    if (standbySwitch && standbyInput.trim()) {
-      result += `&urlstandby=${encodeURIComponent(standbyInput)}`;
+    const standbyTrimmed = standbyInput.trim();
+    if (standbySwitch && standbyTrimmed) {
+      result += `&urlstandby=${encodeURIComponent(standbyTrimmed)}`;
     }
 
     if (!proxySwitch) {

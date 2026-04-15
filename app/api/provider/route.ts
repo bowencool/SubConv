@@ -5,7 +5,7 @@ export async function GET(request: Request) {
   const url = searchParams.get("url");
   if (!url) return new Response("Missing url parameter", { status: 400 });
 
-  const resp = await fetch(url, { headers: { "User-Agent": "v2rayn" } });
+  const resp = await fetch(url./* stupid mihomo */replace(/(\\|\/)$/, ""), { headers: { "User-Agent": "v2rayn" } });
   if (!resp.ok) {
     return new Response(await resp.text(), { status: resp.status });
   }
