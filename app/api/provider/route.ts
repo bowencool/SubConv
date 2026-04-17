@@ -13,13 +13,11 @@ export async function GET(request: Request) {
   const responseText = await resp.text();
   const result = parseSubs(responseText);
   const responseBody = result.endsWith("\n") ? result : `${result}\n`;
-  const body = new TextEncoder().encode(responseBody);
 
-  return new Response(body, {
+  return new Response(responseBody, {
     headers: {
       "Cache-Control": "no-store",
       "Content-Disposition": 'inline; filename="provider.yaml"',
-      "Content-Length": String(body.byteLength),
       "Content-Type": "application/yaml; charset=utf-8",
     },
   });
