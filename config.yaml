@@ -14,16 +14,6 @@ HEAD:
     listen: 0.0.0.0:7874
     nameserver:
       - tls://223.5.5.5
-    nameserver-policy:
-      "+.okx.com":
-        - tls://1.1.1.1
-        - tls://8.8.8.8
-      "+.v2ex.com":
-        - tls://1.1.1.1
-        - tls://8.8.8.8
-      "+.sns.id":
-        - tls://1.1.1.1
-        - tls://8.8.8.8
     fallback:
       - "tls://1.1.1.1#🌍 国外媒体"
       - "tls://8.8.8.8#🌍 国外媒体"
