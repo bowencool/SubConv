@@ -8,6 +8,7 @@ DOMAIN-SUFFIX,sentry.io
 DOMAIN,giscus.app
 DOMAIN-KEYWORD,greasyfork
 DOMAIN-KEYWORD,sleazyfork
+DOMAIN-KEYWORD,nodeseek
 DOMAIN,userstyles.org
 
 # spark
