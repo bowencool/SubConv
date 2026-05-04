@@ -142,23 +142,26 @@ CUSTOM_PROXY_GROUP:
     type: select
     prior: DIRECT
 
-  - name: ♻️ 自动选择
+  - name: ⚡ 最快节点
     type: url-test
     rule: false
+  - name: ♻️ 自动选择
+    type: fallback
+    rule: false
   - name: 🇭🇰 香港自动
-    type: url-test
+    type: fallback
     rule: false
     regex: 🇭🇰|HK|Hong|Kong|HGC|WTT|CMI|港
   - name: 🇯🇵 日本自动
-    type: url-test
+    type: fallback
     rule: false
     regex: 🇯🇵|JP|Japan|Tokyo|Osaka|Saitama|东京|大阪|埼玉|日本
   - name: 🇺🇸 美国自动
-    type: url-test
+    type: fallback
     rule: false
     regex: 🇺🇸|US|America|United.*?States|美[国西东]|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥
   - name: 🇸🇬 狮城自动
-    type: url-test
+    type: fallback
     rule: false
     regex: 🇸🇬|SG|Singapore|狮城|^新[^节北]|[^刷更]新[^节北]
 
