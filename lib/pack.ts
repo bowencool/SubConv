@@ -235,30 +235,32 @@ export function pack(params: PackParams): string {
   const ruleMap: [string, string][] = []; // [name, group]
   const usedNames = new Set<string>();
 
-  for (const [group, ruleUrl] of configInstance.RULESET) {
-    let name: string;
-    if (ruleUrl.startsWith("[]")) {
-      name = ruleUrl;
-    } else {
-      name = urlFilename(ruleUrl);
-      while (usedNames.has(name)) {
-        name += String(randomInt(10));
+  for (const [group, ...ruleUrls] of configInstance.RULESET) {
+    for (const ruleUrl of ruleUrls) {
+      let name: string;
+      if (ruleUrl.startsWith("[]")) {
+        name = ruleUrl;
+      } else {
+        name = urlFilename(ruleUrl);
+        while (usedNames.has(name)) {
+          name += String(randomInt(10));
+        }
+        usedNames.add(name);
+        let providerUrl = ruleUrl;
+        if (notproxyrule == null) {
+          providerUrl = `${base_url}proxy?${new URLSearchParams({ url: ruleUrl }).toString()}`;
+        }
+        ruleProviders[name] = {
+          type: "http",
+          behavior: "classical",
+          format: "text",
+          interval: 86400 * 7,
+          path: `./rule/${name}.txt`,
+          url: providerUrl,
+        };
       }
-      usedNames.add(name);
-      let providerUrl = ruleUrl;
-      if (notproxyrule == null) {
-        providerUrl = `${base_url}proxy?${new URLSearchParams({ url: ruleUrl }).toString()}`;
-      }
-      ruleProviders[name] = {
-        type: "http",
-        behavior: "classical",
-        format: "text",
-        interval: 86400 * 7,
-        path: `./rule/${name}.txt`,
-        url: providerUrl,
-      };
+      ruleMap.push([name, group]);
     }
-    ruleMap.push([name, group]);
   }
   result["rule-providers"] = ruleProviders;
 

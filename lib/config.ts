@@ -13,7 +13,7 @@ export interface GroupDef {
 export interface Config {
   HEAD: Record<string, unknown>;
   TEST_URL: string;
-  RULESET: [string, string][];
+  RULESET: [string, ...string[]][];
   CUSTOM_PROXY_GROUP: GroupDef[];
 }
 
