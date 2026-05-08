@@ -81,10 +81,6 @@ RULESET:
   - - 🐟 漏网之鱼
     - "[]FINAL"
 CUSTOM_PROXY_GROUP:
-  - name: 🔰 节点选择
-    type: select
-    manual: true
-    rule: false
   - name: 🎯 节点选择
     type: select
     manual: true
@@ -100,13 +96,13 @@ CUSTOM_PROXY_GROUP:
     prior: 🇺🇸 美国自动
   - name: YouTube
     type: select
-    prior: ♻️ 自动选择
+    prior: 🇸🇬 狮城自动
   - name: Twitter
     type: select
     prior: 🇺🇸 美国自动
   - name: Crypto
     type: select
-    prior: 🇺🇸 美国自动
+    prior: 🇸🇬 狮城自动
   - name: 🛑 广告
     type: select
     prior: REJECT
@@ -115,7 +111,7 @@ CUSTOM_PROXY_GROUP:
     prior: DIRECT
   - name: 🎮 游戏平台
     type: select
-    prior: DIRECT
+    prior: 🇺🇸 美国自动
 
   - name: ♻️ 自动选择
     type: url-test
