@@ -101,7 +101,9 @@ export function pack(params: PackParams): string {
   }
 
   // subscriptions list for use in groups
-  const subscriptions: string[] = url ? url.map((_, i) => `subscription${i}`) : [];
+  const subscriptions: string[] = url
+    ? url.map((_, i) => `subscription${i}`)
+    : [];
   const standby: string[] = [...subscriptions];
   if (urlstandby) {
     urlstandby.forEach((_, i) => standby.push(`standby${i}`));
@@ -110,37 +112,37 @@ export function pack(params: PackParams): string {
   // proxy-groups
   const proxyGroupsList: Record<string, unknown>[] = [];
 
-  // First group: 🚀 节点选择
-  const proxySelect: Record<string, unknown> = {
-    name: "🚀 节点选择",
-    type: "select",
-    proxies: [
-      ...configInstance.CUSTOM_PROXY_GROUP
-        .filter((g) => g.rule === false)
-        .map((g) => g.name),
-      "DIRECT",
-    ],
-  };
-  if (configInstance.CUSTOM_PROXY_GROUP.length > 0) {
-    proxyGroupsList.push(proxySelect);
-  }
+  // // First group: 🚀 节点选择
+  // const proxySelect: Record<string, unknown> = {
+  //   name: "🚀 节点选择",
+  //   type: "select",
+  //   proxies: [
+  //     ...configInstance.CUSTOM_PROXY_GROUP
+  //       .filter((g) => g.rule === false)
+  //       .map((g) => g.name),
+  //     "DIRECT",
+  //   ],
+  // };
+  // if (configInstance.CUSTOM_PROXY_GROUP.length > 0) {
+  //   proxyGroupsList.push(proxySelect);
+  // }
 
   for (const group of configInstance.CUSTOM_PROXY_GROUP) {
     const { type, regex, rule, manual, prior, name } = group;
 
     if (type === "select" && rule !== false) {
       // rule-based select group
-      const nonRuleGroups = configInstance.CUSTOM_PROXY_GROUP
-        .filter((g) => g.rule === false)
-        .map((g) => g.name);
+      const nonRuleGroups = configInstance.CUSTOM_PROXY_GROUP.filter(
+        (g) => g.rule === false,
+      ).map((g) => g.name);
 
       let proxies: string[];
       if (prior === "DIRECT") {
-        proxies = ["DIRECT", "REJECT", "🚀 节点选择", ...nonRuleGroups];
+        proxies = ["DIRECT", ...nonRuleGroups, "REJECT"];
       } else if (prior === "REJECT") {
-        proxies = ["REJECT", "DIRECT", "🚀 节点选择", ...nonRuleGroups];
+        proxies = ["DIRECT", ...nonRuleGroups, "REJECT"];
       } else {
-        proxies = ["🚀 节点选择", ...nonRuleGroups, "DIRECT", "REJECT"];
+        proxies = ["DIRECT", ...nonRuleGroups, "REJECT"];
       }
       proxyGroupsList.push({ name, type: "select", proxies });
       continue;
@@ -160,18 +162,20 @@ export function pack(params: PackParams): string {
         const re = new RegExp(regex, "i");
 
         if (manual) {
-          const hasProviders = standby.length > 0 && standby.some((p) => re.test(p));
+          const hasProviders =
+            standby.length > 0 && standby.some((p) => re.test(p));
           if (hasProviders) proxyGroup["use"] = standby;
           if (proxiesStandbyName.length > 0) {
             for (const p of proxiesStandbyName) {
               if (re.test(p)) proxyGroupProxies.push(p);
             }
-            if (proxyGroupProxies.length > 0) proxyGroup["proxies"] = proxyGroupProxies;
+            if (proxyGroupProxies.length > 0)
+              proxyGroup["proxies"] = proxyGroupProxies;
           }
           if (!hasProviders && proxyGroupProxies.length === 0) {
-            const selProxies = proxyGroupsList[0]["proxies"] as string[];
-            const idx = selProxies.indexOf(name);
-            if (idx !== -1) selProxies.splice(idx, 1);
+            // const selProxies = proxyGroupsList[0]["proxies"] as string[];
+            // const idx = selProxies.indexOf(name);
+            // if (idx !== -1) selProxies.splice(idx, 1);
             proxyGroup = null;
           }
         } else {
@@ -182,19 +186,21 @@ export function pack(params: PackParams): string {
             for (const p of proxiesName) {
               if (re.test(p)) proxyGroupProxies.push(p);
             }
-            if (proxyGroupProxies.length > 0) proxyGroup["proxies"] = proxyGroupProxies;
+            if (proxyGroupProxies.length > 0)
+              proxyGroup["proxies"] = proxyGroupProxies;
           }
           if (subscriptions.length === 0 && proxyGroupProxies.length === 0) {
-            const selProxies = proxyGroupsList[0]["proxies"] as string[];
-            const idx = selProxies.indexOf(name);
-            if (idx !== -1) selProxies.splice(idx, 1);
+            // const selProxies = proxyGroupsList[0]["proxies"] as string[];
+            // const idx = selProxies.indexOf(name);
+            // if (idx !== -1) selProxies.splice(idx, 1);
             proxyGroup = null;
           }
         }
       } else {
         if (manual) {
           if (standby.length > 0) proxyGroup["use"] = standby;
-          if (proxiesStandbyName.length > 0) proxyGroup["proxies"] = proxiesStandbyName;
+          if (proxiesStandbyName.length > 0)
+            proxyGroup["proxies"] = proxiesStandbyName;
         } else {
           if (subscriptions.length > 0) proxyGroup["use"] = subscriptions;
           if (proxiesName.length > 0) proxyGroup["proxies"] = proxiesName;
@@ -219,12 +225,15 @@ export function pack(params: PackParams): string {
 
   // remove proxies that don't exist in any group
   const allGroupAndProxyNames = new Set<string>(["DIRECT", "REJECT"]);
-  for (const g of proxyGroupsList) allGroupAndProxyNames.add(g["name"] as string);
+  for (const g of proxyGroupsList)
+    allGroupAndProxyNames.add(g["name"] as string);
   for (const n of proxiesStandbyName) allGroupAndProxyNames.add(n);
 
   for (const pg of proxyGroupsList) {
     if ("proxies" in pg) {
-      pg["proxies"] = (pg["proxies"] as string[]).filter((p) => allGroupAndProxyNames.has(p));
+      pg["proxies"] = (pg["proxies"] as string[]).filter((p) =>
+        allGroupAndProxyNames.has(p),
+      );
     }
   }
 
