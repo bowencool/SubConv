@@ -7,6 +7,9 @@ DOMAIN-KEYWORD,greasyfork
 DOMAIN-KEYWORD,sleazyfork
 DOMAIN-KEYWORD,nodeseek
 DOMAIN,userstyles.org
+# 良心云
+DOMAIN-SUFFIX,xn--9kqz23b19z.com
+DOMAIN-SUFFIX,liangxin.xyz
 
 # spark
 DOMAIN,app.smartmailcloud.com
