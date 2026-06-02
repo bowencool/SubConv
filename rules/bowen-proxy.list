@@ -31,7 +31,8 @@ DOMAIN-SUFFIX,medium.com
 DOMAIN-SUFFIX,stackoverflow.com
 DOMAIN-SUFFIX,tailwindcss.com
 DOMAIN-SUFFIX,wise.com
-DOMAIN,forums.unraid.net
+# DOMAIN,forums.unraid.net
+DOMAIN-SUFFIX,unraid.net
 # warp
 DOMAIN-SUFFIX,warp.dev
 DOMAIN-SUFFIX,rudderstack.com
