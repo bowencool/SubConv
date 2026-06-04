@@ -7,20 +7,6 @@ HEAD:
   unified-delay: true
   profile:
     store-selected: true
-  dns:
-    enable: true
-    ipv6: true
-    enhanced-mode: redir-host
-    listen: 0.0.0.0:7874
-    nameserver:
-      - tls://223.5.5.5
-    fallback:
-      - "tls://1.1.1.1#🌍 国外媒体"
-      - "tls://8.8.8.8#🌍 国外媒体"
-    default-nameserver:
-      - 114.114.114.114
-      - 119.29.29.29
-      - 223.5.5.5
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
   - - 🇺🇸 美国自动
