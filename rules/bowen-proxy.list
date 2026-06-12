@@ -11,6 +11,7 @@ DOMAIN-SUFFIX,brave.com
 # 良心云
 DOMAIN-SUFFIX,xn--9kqz23b19z.com
 DOMAIN-SUFFIX,liangxin.xyz
+DOMAIN-KEYWORD,longbridge
 
 # spark
 DOMAIN,app.smartmailcloud.com
