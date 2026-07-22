@@ -64,11 +64,17 @@ DOMAIN-KEYWORD,wmsxwd
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,datadoghq.com
 DOMAIN-SUFFIX,wikipedia.org
-# npm
+
+# Developer
 DOMAIN-SUFFIX,npm.community
 DOMAIN-SUFFIX,npmjs.com
 DOMAIN-SUFFIX,npmjs.org
 DOMAIN-SUFFIX,nodejs.org
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,files.pythonhosted.org
+DOMAIN-SUFFIX,crates.io
+DOMAIN-SUFFIX,pkg.go.dev
+
 # Adult
 DOMAIN-SUFFIX,supjav.com
 DOMAIN-SUFFIX,supremejav.com
