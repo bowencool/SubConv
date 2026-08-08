@@ -11,6 +11,20 @@ function urlFilename(url: string): string {
   return new URL(url).pathname.split("/").pop()!.split(".")[0];
 }
 
+// Provider URLs are rewritten as `.../provider?url=<original>`, so derive the
+// name from the original subscription URL's hostname. The name doubles as a
+// cache filename (`./sub/<name>.yaml`) and a YAML key, so keep it safe.
+function urlDomain(url: string): string {
+  const target = new URL(url).searchParams.get("url") ?? url;
+  return (
+    new URL(target)
+      .hostname.toLowerCase()
+      .replace(/[^a-z0-9._-]/g, "-")
+      .replace(/^\.+/, "")
+      .replace(/\.+$/, "") || "provider"
+  );
+}
+
 export interface PackParams {
   url: string[] | null;
   urlstandalone: ProxyRecord[] | null;
@@ -64,49 +78,39 @@ export function pack(params: PackParams): string {
 
   // proxy-providers
   const proxyProviders: Record<string, unknown> = {};
-  if (url) {
-    url.forEach((u, i) => {
-      const providerUrl = u;
-      proxyProviders[`subscription${i}`] = {
-        type: "http",
-        url: providerUrl,
-        interval: parseInt(interval),
-        path: `./sub/subscription${i}.yaml`,
-        "health-check": {
-          enable: true,
-          interval: 60,
-          url: configInstance.TEST_URL,
-        },
-      };
-    });
-  }
-  if (urlstandby) {
-    urlstandby.forEach((u, i) => {
-      const providerUrl = u;
-      proxyProviders[`standby${i}`] = {
-        type: "http",
-        url: providerUrl,
-        interval: parseInt(interval),
-        path: `./sub/standby${i}.yaml`,
-        "health-check": {
-          enable: true,
-          interval: 60,
-          url: configInstance.TEST_URL,
-        },
-      };
-    });
-  }
-  if (Object.keys(proxyProviders).length > 0) {
-    result["proxy-providers"] = proxyProviders;
-  }
+  const usedProviderName = new Set<string>();
+  const addProvider = (providerUrl: string, nameList: string[]) => {
+    const base = urlDomain(providerUrl);
+    let name = base;
+    let n = 2;
+    while (usedProviderName.has(name)) name = `${base}-${n++}`;
+    usedProviderName.add(name);
+    proxyProviders[name] = {
+      type: "http",
+      url: providerUrl,
+      interval: parseInt(interval),
+      path: `./sub/${name}.yaml`,
+      "health-check": {
+        enable: true,
+        interval: 60,
+        url: configInstance.TEST_URL,
+      },
+    };
+    nameList.push(name);
+  };
 
   // subscriptions list for use in groups
-  const subscriptions: string[] = url
-    ? url.map((_, i) => `subscription${i}`)
-    : [];
+  const subscriptions: string[] = [];
+  if (url) {
+    for (const u of url) addProvider(u, subscriptions);
+  }
   const standby: string[] = [...subscriptions];
   if (urlstandby) {
-    urlstandby.forEach((_, i) => standby.push(`standby${i}`));
+    for (const u of urlstandby) addProvider(u, standby);
+  }
+
+  if (Object.keys(proxyProviders).length > 0) {
+    result["proxy-providers"] = proxyProviders;
   }
 
   // proxy-groups
