@@ -213,9 +213,15 @@ export function pack(params: PackParams): string {
           proxyGroup["url"] = configInstance.TEST_URL;
           proxyGroup["interval"] = 60;
           proxyGroup["tolerance"] = 50;
-        } else if (type === "fallback" || type === "url-test") {
+        } else if (type === "fallback") {
           proxyGroup["url"] = configInstance.TEST_URL;
           proxyGroup["interval"] = 60;
+          proxyGroup["tolerance"] = 50;
+        } else if (type === "url-test") {
+          proxyGroup["url"] = configInstance.TEST_URL;
+          proxyGroup["interval"] = 15;
+          proxyGroup["timeout"] = 5000;
+          proxyGroup["max-failed-times"] = 2;
           proxyGroup["tolerance"] = 50;
         }
         proxyGroupsList.push(proxyGroup);
