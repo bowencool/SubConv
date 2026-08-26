@@ -74,6 +74,7 @@ DOMAIN-SUFFIX,pypi.org
 DOMAIN-SUFFIX,files.pythonhosted.org
 DOMAIN-SUFFIX,crates.io
 DOMAIN-SUFFIX,pkg.go.dev
+DOMAIN-SUFFIX,deb.debian.org
 
 # Adult
 DOMAIN-SUFFIX,supjav.com
