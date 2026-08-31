@@ -13,6 +13,8 @@ DOMAIN-SUFFIX,opapi.win
 DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-KEYWORD,hsbc
+DOMAIN-KEYWORD,schwab
+DOMAIN-KEYWORD,thinkorswim
 
 # Tailscale
 PROCESS-NAME,tailscaled
