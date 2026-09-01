@@ -79,7 +79,11 @@ export function pack(params: PackParams): string {
   // proxy-providers
   const proxyProviders: Record<string, unknown> = {};
   const usedProviderName = new Set<string>();
-  const addProvider = (providerUrl: string, nameList: string[]) => {
+  const addProvider = (
+    providerUrl: string,
+    nameList: string[],
+    healthCheckLazy?: boolean,
+  ) => {
     const base = urlDomain(providerUrl);
     let name = base;
     let n = 2;
@@ -92,6 +96,7 @@ export function pack(params: PackParams): string {
       path: `./sub/${name}.yaml`,
       "health-check": {
         enable: true,
+        ...(healthCheckLazy == null ? {} : { lazy: healthCheckLazy }),
         interval: 60,
         url: configInstance.TEST_URL,
       },
@@ -102,7 +107,7 @@ export function pack(params: PackParams): string {
   // subscriptions list for use in groups
   const subscriptions: string[] = [];
   if (url) {
-    for (const u of url) addProvider(u, subscriptions);
+    for (const u of url) addProvider(u, subscriptions, false);
   }
   const standby: string[] = [...subscriptions];
   if (urlstandby) {
