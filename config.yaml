@@ -10,11 +10,11 @@ HEAD:
 TEST_URL: https://www.gstatic.com/generate_204
 RULESET:
   - - 🇺🇸 美国自动
-    - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/us.list
+    - https://raw.githubusercontent.com/bowencool/SubConv/refs/heads/main/rules/us.list
   - - 🌍 国外媒体
-    - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/bowen-proxy.list
+    - https://raw.githubusercontent.com/bowencool/SubConv/refs/heads/main/rules/bowen-proxy.list
   - - DIRECT
-    - https://cdn.jsdelivr.net/gh/bowencool/SubConv@main/rules/bowen-direct.list
+    - https://raw.githubusercontent.com/bowencool/SubConv/refs/heads/main/rules/bowen-direct.list
   - - 🛑 广告
     - https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list
   - - DIRECT
