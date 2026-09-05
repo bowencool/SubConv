@@ -11,9 +11,20 @@ const USER_AGENTS = [
   "Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30",
 ] as const;
 
-type ProxyRecord = Record<string, unknown>;
+export type ProxyRecord = Record<string, unknown>;
 type NameCounter = Record<string, number>;
 type SchemeParser = (line: string, body: string, scheme: string, names: NameCounter) => ProxyRecord | null;
+
+export function normalizeProxyServer(proxy: ProxyRecord): ProxyRecord {
+  const server = proxy["server"];
+  if (typeof server !== "string" || !server.startsWith("[") || !server.endsWith("]")) {
+    return proxy;
+  }
+
+  const unwrapped = server.slice(1, -1);
+  if (!unwrapped.includes(":")) return proxy;
+  return { ...proxy, server: unwrapped };
+}
 
 function pickUserAgent(): string {
   return USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
@@ -580,7 +591,7 @@ export function parseProxyLinks(input: string): ProxyRecord[] {
     if (!parser) continue;
 
     const proxy = parser(line, body, scheme, names);
-    if (proxy) proxies.push(proxy);
+    if (proxy) proxies.push(normalizeProxyServer(proxy));
   }
 
   return proxies;

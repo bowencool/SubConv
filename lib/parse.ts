@@ -1,12 +1,12 @@
 import yaml from "js-yaml";
-import { parseProxyLinks } from "./convert";
-
-type ProxyRecord = Record<string, unknown>;
+import { normalizeProxyServer, parseProxyLinks, type ProxyRecord } from "./convert";
 
 const EXCLUDE_NAME_RE = /到期|官网|剩余|流量|套餐|重置|http/i;
 
 function filterProxies(proxies: ProxyRecord[]): ProxyRecord[] {
-  return proxies.filter((p) => !EXCLUDE_NAME_RE.test(String(p["name"] ?? "")));
+  return proxies
+    .filter((p) => !EXCLUDE_NAME_RE.test(String(p["name"] ?? "")))
+    .map(normalizeProxyServer);
 }
 
 export function parseSubs(content: string): string {

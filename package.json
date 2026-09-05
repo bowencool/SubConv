@@ -4,6 +4,7 @@
     "node": "22.x"
   },
   "scripts": {
+    "test": "bun test",
     "dev": "vinext dev --port 48080",
     "build": "vinext build",
     "start": "vinext start --port 48080",
