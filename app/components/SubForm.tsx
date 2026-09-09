@@ -165,7 +165,7 @@ export default function SubForm() {
     "flex w-full rounded-md border border-zinc-200 bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-zinc-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-800 dark:placeholder:text-zinc-400 dark:focus-visible:ring-zinc-300 resize-none transition-colors";
 
   const switchClass =
-    "w-9 h-5 bg-zinc-200 hover:bg-zinc-300 peer-focus:outline-none rounded-full peer dark:bg-zinc-800 dark:hover:bg-zinc-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-zinc-600 peer-checked:bg-zinc-900 dark:peer-checked:bg-zinc-50";
+    "w-9 h-5 bg-zinc-200 hover:bg-zinc-300 peer-focus:outline-none rounded-full peer dark:bg-zinc-800 dark:hover:bg-zinc-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-zinc-600 peer-checked:bg-zinc-900 dark:peer-checked:bg-zinc-50 dark:peer-checked:after:bg-zinc-900 dark:peer-checked:after:border-zinc-900";
 
   return (
     <div className="space-y-6">
